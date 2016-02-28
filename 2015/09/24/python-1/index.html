@@ -1,0 +1,947 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <meta name="google-site-verification" content="VvyjvVXcJQa0QklHipu6pwm2PJGnnchIqX7s5JbbT_0" />
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="Every single day without dancing is one day we betrayed of life." />
+
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/bitbug_favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="数字和表达式Note: Python不需要用分号结束，如果喜欢的话，也可以加上分号，但不会有任何作用（除非同一行有更多代码）．
+如果只希望Python执行普通的除法，那么可以在程序前加上以下语句：
+from __future__ import division
+这样当Python执行1/2时，会按照普通除法来操作，输出0.但是单斜线不在用作整除了，我们可以使用双斜线＇//＇实现整除操作．
+&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Chapter 1 基础知识">
+<meta property="og:url" content="http://sujerry.com/2015/09/24/python-1/index.html">
+<meta property="og:site_name" content="SuJerry's Blog">
+<meta property="og:description" content="数字和表达式Note: Python不需要用分号结束，如果喜欢的话，也可以加上分号，但不会有任何作用（除非同一行有更多代码）．
+如果只希望Python执行普通的除法，那么可以在程序前加上以下语句：
+from __future__ import division
+这样当Python执行1/2时，会按照普通除法来操作，输出0.但是单斜线不在用作整除了，我们可以使用双斜线＇//＇实现整除操作．
+&amp;gt;">
+<meta property="og:updated_time" content="2015-09-26T00:31:45.089Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python Chapter 1 基础知识">
+<meta name="twitter:description" content="数字和表达式Note: Python不需要用分号结束，如果喜欢的话，也可以加上分号，但不会有任何作用（除非同一行有更多代码）．
+如果只希望Python执行普通的除法，那么可以在程序前加上以下语句：
+from __future__ import division
+这样当Python执行1/2时，会按照普通除法来操作，输出0.但是单斜线不在用作整除了，我们可以使用双斜线＇//＇实现整除操作．
+&amp;gt;">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Python Chapter 1 基础知识 | SuJerry's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8828472b36a6d76850b288afe56fdf20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">SuJerry's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            Tags
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Python Chapter 1 基础知识
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-09-24T08:16:58+08:00" content="2015-09-24">
+            2015-09-24
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Python/" itemprop="url" rel="index">
+                  <span itemprop="name">Python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/09/24/python-1/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/24/python-1/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="数字和表达式"><a href="#数字和表达式" class="headerlink" title="数字和表达式"></a>数字和表达式</h2><p>Note: Python不需要用分号结束，如果喜欢的话，也可以加上分号，但不会有任何作用（除非同一行有更多代码）．</p>
+<p>如果只希望Python执行普通的除法，那么可以在程序前加上以下语句：</p>
+<pre><code>from __future__ import division
+</code></pre><p>这样当Python执行1/2时，会按照普通除法来操作，输出0.但是单斜线不在用作整除了，我们可以使用双斜线＇//＇实现整除操作．</p>
+<pre><code>&gt;&gt;&gt; 1 // 2
+0
+&gt;&gt;&gt; 1.0 // 2.0
+0.0
+</code></pre><p>Python的取余运算符＇%＇，也可以作用于浮点数．</p>
+<pre><code>&gt;&gt;&gt; 2.75 % 0.5
+0.25
+</code></pre><p>Python的幂（乘方）运算符＇**＇：</p>
+<pre><code>&gt;&gt;&gt; 2 ** 3
+8
+&gt;&gt;&gt; -3 ** 2
+-9
+&gt;&gt;&gt; (-3) ** 2
+9
+</code></pre><p>幂运算符比取反运算符优先级高．</p>
+<h3 id="长整数"><a href="#长整数" class="headerlink" title="长整数"></a>长整数</h3><p>Python中可以处理大于2147483647和小于-2147483648的数，只需要在数的后面加上字母L（小写也可），如果计算中超出普通整数的范围，这个计算的结果会自动转换为长整数．</p>
+<pre><code>&gt;&gt;&gt; 1234565431235465L * 1545151545451545 + 21
+1907590684034531851190643043446L
+</code></pre><h3 id="十六进制和八进制"><a href="#十六进制和八进制" class="headerlink" title="十六进制和八进制"></a>十六进制和八进制</h3><p>Python和C语言一样，使用＇0x＇表示十六进制，＇0＇表示八进制．</p>
+<pre><code>&gt;&gt;&gt; 0xAF
+175
+&gt;&gt;&gt; 010        
+8
+</code></pre><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>Python中的变量不像C语言中的变量那样，需要先声明后使用，它可以在程序中直接使用，但是需要先赋值．</p>
+<pre><code>x = 19
+print x
+</code></pre><h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><p>Python 3.0以后，print变成了print().</p>
+<pre><code>print 34    #Python 3.0以前
+print(34)    #Python 3.0以后
+</code></pre><h2 id="获取用户输入"><a href="#获取用户输入" class="headerlink" title="获取用户输入"></a>获取用户输入</h2><pre><code>x = input(&quot;Please input a number:&quot;)
+print x
+</code></pre><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><pre><code>pow(2, 3)        #幂函数2 ** 3
+abs(-10)
+round(1.0/2.0)    #四舍五入
+</code></pre><h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>可以把模块想象成导入到Python以增强其功能的扩展．需使用命令import来导入．</p>
+<pre><code>&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.floor(1.2)
+1.0
+&gt;&gt;&gt; math.ceil(1.2)
+2.0
+</code></pre><p>注意：需要按照＂模块.函数＂的格式使用这个模块的函数．</p>
+<p>如果想转换为整数，可以使用int函数：</p>
+<pre><code>&gt;&gt;&gt; int(math.floor(1.2))
+1
+</code></pre><p>在确定自己不会导入多个同名函数（从不同模块导入）的情况下，你可能不希望每次调用函数的时候，都要写上模块的名字．那么可以使用另外一种形式：</p>
+<pre><code>&gt;&gt;&gt; from math import sqrt
+&gt;&gt;&gt; sqrt(9)    
+3.0
+</code></pre><p>提示：可以使用变量来引用函数（或Python中的大多数对象）．比如通过foo=math.sqrt进行赋值，然后就可以使用foo来计算平方根了：foo(4)的结果为2.0．</p>
+<h3 id="cmath和复数"><a href="#cmath和复数" class="headerlink" title="cmath和复数"></a>cmath和复数</h3><p>math中的sqrt函数只能处理浮点数，如果处理虚数，则需要用cmath(complex math, 复数)模块来处理．</p>
+<pre><code>&gt;&gt;&gt; import cmath
+&gt;&gt;&gt; cmath.sqrt(-1)
+1j
+&gt;&gt;&gt; (1+3j) * (9+4j)
+(-3+31j)
+</code></pre><p>可以看到，Python语言本身就提供了对复数的支持．</p>
+<p>注意：Python中没有单独的虚数类型．它们被看作实数部分为0的复数．</p>
+<h3 id="回到future"><a href="#回到future" class="headerlink" title="回到future"></a>回到<strong>future</strong></h3><p>通过它可以导入哪些在未来会成为标准Python组成部分的新特性．</p>
+<h2 id="保存并执行程序"><a href="#保存并执行程序" class="headerlink" title="保存并执行程序"></a>保存并执行程序</h2><h3 id="通过命令提示符运行Python脚本"><a href="#通过命令提示符运行Python脚本" class="headerlink" title="通过命令提示符运行Python脚本"></a>通过命令提示符运行Python脚本</h3><pre><code>$python hello.py
+</code></pre><h3 id="让脚本像普通程序一样执行"><a href="#让脚本像普通程序一样执行" class="headerlink" title="让脚本像普通程序一样执行"></a>让脚本像普通程序一样执行</h3><pre><code>#!/usr/bin/env python
+</code></pre><p>如果按装了新版本的Python，则改成下面（具体路径会因系统而异）：</p>
+<pre><code>#!/usr/bin/python2
+or
+#!/usr/bin/python3
+</code></pre><p>在实际运行脚本前，必须让脚本文件具有可执行的属性：</p>
+<pre><code>$ chmod a+x hello.py
+or
+$ chmod a+x *.py
+</code></pre><p>现在就可以这样运行代码了（假设路径就是当前目录）：</p>
+<pre><code>$ hello.py
+</code></pre><p>如果不起作用的话，试试:</p>
+<pre><code>$ ./hello.py
+</code></pre><h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>Python使用＇#＇来进行注释：</p>
+<pre><code>#这里是注释．
+</code></pre><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="单引号字符串和转义引号"><a href="#单引号字符串和转义引号" class="headerlink" title="单引号字符串和转义引号"></a>单引号字符串和转义引号</h3><p>在Python中使用单引号或双引号扩起来的字符为字符串，两者并没有什么不同．</p>
+<pre><code>&quot;Let&apos;s go!&quot;
+&apos;&quot;Hello world!&quot; she said&apos;
+</code></pre><p>或者使用转义符号＇\＇：</p>
+<pre><code>&apos;Let\&apos;s go!&apos;
+&apos;Let\&apos;s come out!&apos;
+</code></pre><h3 id="拼接字符串"><a href="#拼接字符串" class="headerlink" title="拼接字符串"></a>拼接字符串</h3><p>使用＇+＇来进行字符串的拼接：</p>
+<pre><code>&gt;&gt;&gt; x = &apos;hello &apos;
+&gt;&gt;&gt; y = &apos;world!&apos;
+&gt;&gt;&gt; x + y
+hello world!
+</code></pre><h3 id="字符串表示，str-和-repr"><a href="#字符串表示，str-和-repr" class="headerlink" title="字符串表示，str 和 repr"></a>字符串表示，str 和 repr</h3><p>str：把值转换成合理的字符串的形式<br>repr：会创建一个字符串，它以合法的Python表达式的形式来表示值</p>
+<pre><code>&gt;&gt;&gt; print str(1000L)
+    1000
+&gt;&gt;&gt; print repr(&quot;Hello, world!&quot;)
+    &apos;Hello, world!&apos;
+&gt;&gt;&gt; print repr(1000L)
+    1000L
+&gt;&gt;&gt; print 1000L
+    1000
+&gt;&gt;&gt; print str(1000L)
+    1000
+&gt;&gt;&gt; print str(&quot;Hello, world!&quot;)
+    Hello, world!
+</code></pre><p>repr(x)的功能也可以用<code>x</code>实现．</p>
+<pre><code>&gt;&gt;&gt; tmp = 42
+&gt;&gt;&gt; print &quot;the num is:&quot; + tmp
+Traceback (most recent call last):
+      File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  TypeError: cannot concatenate &apos;str&apos; and &apos;int&apos; objects
+&gt;&gt;&gt; print &quot;the num is:&quot; + `tmp`
+the num is:42
+&gt;&gt;&gt; print &quot;the num is:&quot; + str(tmp)
+the num is:42
+&gt;&gt;&gt; print &quot;the num is:&quot; + repr(tmp)
+the num is:42
+</code></pre><p>注意：在Python 3.0中，已经不再使用反引号了．因此即使在旧的代码中看到了反引号，你也应该使用repr．</p>
+<p>简而言之，str, repr和反引号是将Python值转换为字符串的3中方法．函数str让字符串更易于阅读，而repr（和反引号）则把结果字符串转换为合法的Python表达式．</p>
+<p>事实上，str和int, long一样，是一种类型．而repr仅仅是函数．</p>
+<h3 id="input和raw-input的比较"><a href="#input和raw-input的比较" class="headerlink" title="input和raw_input的比较"></a>input和raw_input的比较</h3><pre><code>&gt;&gt;&gt; name = input(&quot;what is your name? &quot;)
+what is your name? Jerry
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+NameError: name &apos;Jerry&apos; is not defined
+&gt;&gt;&gt; name = input(&quot;what is your name? &quot;)
+what is your name? &quot;Jerry&quot;
+&gt;&gt;&gt; print &quot;hello &quot; + name
+hello Jerry
+</code></pre><p>input会假设用户输入的是合法的Python表达式．而raw_input会把所有的输入当作原始数据，然后将其放入字符串中：</p>
+<pre><code>&gt;&gt;&gt; name = raw_input(&quot;what is your name? &quot;)
+what is your name? ３
+&gt;&gt;&gt; name = raw_input(&quot;what is your name? &quot;)
+what is your name? 3
+&gt;&gt;&gt; print &quot;hello &quot; + name
+hello 3
+&gt;&gt;&gt; name = raw_input(&quot;what is your name? &quot;)
+what is your name? wang
+&gt;&gt;&gt; print &quot;hello &quot; + name
+hello wang
+</code></pre><p>除非对input有特殊的需要，否则应尽可能使用raw_input．</p>
+<h3 id="长字符串，原始字符串和-Unicode"><a href="#长字符串，原始字符串和-Unicode" class="headerlink" title="长字符串，原始字符串和 Unicode"></a>长字符串，原始字符串和 Unicode</h3><p>如果需要写一个非常长的跨行字符串，你可以使用三个单引号或双引号代替普通引号．</p>
+<pre><code>&gt;&gt;&gt; print &apos;&apos;&apos;This is a very long string.
+... It continues here.
+... And it&apos;s not over yet.
+... ANd it&apos;s very long.
+... &quot;hello world&quot;
+... Still here.&apos;&apos;&apos;
+This is a very long string.
+It continues here.
+And it&apos;s not over yet.
+ANd it&apos;s very long.
+&quot;hello world&quot;
+Still here.
+</code></pre><p>你可以在里面任意使用单（双）引号．</p>
+<p>提示：普通字符串也可以跨行，需要反斜线转义．</p>
+<pre><code>&gt;&gt;&gt; print &quot;hello. \
+... world&quot;
+hello. world
+&gt;&gt;&gt; 1 +2 + \
+... 3 + 4
+10
+</code></pre><p>原始字符串不会把反斜线当作特殊字符．在原始字符串中输入的每个字符都会与书写的方式保持一致：</p>
+<pre><code>&gt;&gt;&gt; print r&apos;C:\nowhere&apos;
+C:\nowhere
+&gt;&gt;&gt; print r&apos;C:\Program\fnord&apos;
+C:\Program\fnord
+</code></pre><p>不能在原始字符串的结尾处输入反斜线．</p>
+<pre><code>&gt;&gt;&gt; print r&apos;C:\nowhere&apos;
+C:\nowhere
+&gt;&gt;&gt; print r&apos;C:\Program\fnord&apos;
+C:\Program\fnord
+&gt;&gt;&gt; print r&apos;C:\&apos;
+  File &quot;&lt;stdin&gt;&quot;, line 1
+      print r&apos;C:\&apos;
+                 ^
+ SyntaxError: EOL while scanning string literal
+ &gt;&gt;&gt; print r&apos;C:\\&apos;
+ C:\\
+ &gt;&gt;&gt; print r&apos;let&apos;s come out!&apos;
+   File &quot;&lt;stdin&gt;&quot;, line 1
+       print r&apos;let&apos;s come out!&apos;
+                   ^
+ SyntaxError: invalid syntax
+</code></pre><p>如果要使用，则只能将反斜线单独作为一个字符串处理．</p>
+<pre><code>&gt;&gt;&gt; print r&apos;C:\foo\bar&apos; + &apos;\\&apos;
+C:\foo\bar\
+</code></pre><p>在python中的普通字符串在内部是以8位的ASCII码形式存储的，而Unicode字符串则存储为16位Unicode字符，这样就能表示更多的字符集了，包括世界上大多数语言的特殊字符．</p>
+<pre><code>&gt;&gt;&gt; u&apos;hello&apos;
+u&apos;hello&apos;
+</code></pre><p>可以看到，Unicode字符串使用u前缀，就像原始字符串使用r一样．</p>
+<p>注意：在Python 3.0中，所有字符串都是Unicode字符串．</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><pre><code>函数                        描述
+-----------------------------------------------------------
+abs(number)                 返回数字的绝对值
+cmath.sqrt(number)          返回平方根，也可应用于负数
+float(object)               将字符串和数字转换为浮点数
+help()                      提供交互式帮助
+input(prompt)               获取用户输入
+int(object)                 将字符串和数字转换为整数
+long(object)                将字符串和数字转换为长整数
+math.ceil(number)           返回数的上入整数，返回值的类型为浮点数
+math.floor(number)          返回数的下舍整数，返回值的类型为浮点数
+math.sqrt(number)           返回平方根，不是用于负数
+pow(x, y[, z])              返回x的y次幂（所得结果对x取模）
+raw_input(prompt)           获取用户输入，返回的类型为字符串
+repr(object)                返回值的字符串表示形式
+round(number[, ndigits])    根据给定的精度对数字进行四舍五入
+str(object)                 将值转换为字符串
+</code></pre></span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/24/python-2/" rel="prev">Python Chapter 2 列表和元组</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/23/alu-crt-t/" rel="next">Chinese Remainder Theorem</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/09/24/python-1/"
+                   data-title="Python Chapter 1 基础知识" data-url="http://sujerry.com/2015/09/24/python-1/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/tempo.jpg" alt="Jerry Wang" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Jerry Wang</p>
+        </div>
+
+        <p class="site-description motion-element" itemprop="description">Every single day without dancing is one day we betrayed of life.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">categories</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sujerry" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1955496293" target="_blank">Weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.kennethreitz.org/" target="_blank">kennethreitz</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cyberciti.biz/" target="_blank">nixCraft</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cnblogs.com/peida/" target="_blank">Peida</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/sunboy_2050" target="_blank">Sunboy</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://macshuo.com/" target="_blank">MacTalk</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://qianduanblog.com/" target="_blank">QDBlog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://heroicyang.com/" target="_blank">Hero</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.skymoon.biz/" target="_blank">Skymoon</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.kuangbin.net/" target="_blank">KuangBin</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/lttree" target="_blank">LTtree</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://yife.im/" target="_blank">FlyingBull</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数字和表达式"><span class="nav-number">1.</span> <span class="nav-text">数字和表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#长整数"><span class="nav-number">1.1.</span> <span class="nav-text">长整数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十六进制和八进制"><span class="nav-number">1.2.</span> <span class="nav-text">十六进制和八进制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">2.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语句"><span class="nav-number">3.</span> <span class="nav-text">语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取用户输入"><span class="nav-number">4.</span> <span class="nav-text">获取用户输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">5.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块"><span class="nav-number">6.</span> <span class="nav-text">模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cmath和复数"><span class="nav-number">6.1.</span> <span class="nav-text">cmath和复数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回到future"><span class="nav-number">6.2.</span> <span class="nav-text">回到future</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保存并执行程序"><span class="nav-number">7.</span> <span class="nav-text">保存并执行程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过命令提示符运行Python脚本"><span class="nav-number">7.1.</span> <span class="nav-text">通过命令提示符运行Python脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#让脚本像普通程序一样执行"><span class="nav-number">7.2.</span> <span class="nav-text">让脚本像普通程序一样执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">7.3.</span> <span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">8.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单引号字符串和转义引号"><span class="nav-number">8.1.</span> <span class="nav-text">单引号字符串和转义引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拼接字符串"><span class="nav-number">8.2.</span> <span class="nav-text">拼接字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串表示，str-和-repr"><span class="nav-number">8.3.</span> <span class="nav-text">字符串表示，str 和 repr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#input和raw-input的比较"><span class="nav-number">8.4.</span> <span class="nav-text">input和raw_input的比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#长字符串，原始字符串和-Unicode"><span class="nav-number">8.5.</span> <span class="nav-text">长字符串，原始字符串和 Unicode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" align="center">
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry Wang</span>
+</div>
+
+<!--jerrywang
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+-->
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sujerry"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

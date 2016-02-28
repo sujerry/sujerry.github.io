@@ -1,0 +1,1229 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <meta name="google-site-verification" content="VvyjvVXcJQa0QklHipu6pwm2PJGnnchIqX7s5JbbT_0" />
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="Every single day without dancing is one day we betrayed of life." />
+
+
+
+  <meta name="keywords" content="markdown," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/bitbug_favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="本文译于Markdown英文文档
+
+综述:哲学Markdown的目的是实现易读易写．
+易读是最重要的．Markdown格式的文件应该像纯文本那样按照原样发表，而不是看起来像使用标签或格式化的指令进行了标记．虽然Markdown的语法受到了现有的几个text-to-HTML格式的影响，包括Setext, atx, Textile, reStructuredText, Grutatext, and E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown Syntax">
+<meta property="og:url" content="http://sujerry.com/2015/09/16/markdown-syntax/index.html">
+<meta property="og:site_name" content="SuJerry's Blog">
+<meta property="og:description" content="本文译于Markdown英文文档
+
+综述:哲学Markdown的目的是实现易读易写．
+易读是最重要的．Markdown格式的文件应该像纯文本那样按照原样发表，而不是看起来像使用标签或格式化的指令进行了标记．虽然Markdown的语法受到了现有的几个text-to-HTML格式的影响，包括Setext, atx, Textile, reStructuredText, Grutatext, and E">
+<meta property="og:image" content="http://sujerry.com/md1.png">
+<meta property="og:image" content="http://sujerry.com/md2.png">
+<meta property="og:image" content="http://sujerry.com/md3.png">
+<meta property="og:image" content="http://sujerry.com/md4.png">
+<meta property="og:updated_time" content="2015-09-18T09:03:36.763Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Markdown Syntax">
+<meta name="twitter:description" content="本文译于Markdown英文文档
+
+综述:哲学Markdown的目的是实现易读易写．
+易读是最重要的．Markdown格式的文件应该像纯文本那样按照原样发表，而不是看起来像使用标签或格式化的指令进行了标记．虽然Markdown的语法受到了现有的几个text-to-HTML格式的影响，包括Setext, atx, Textile, reStructuredText, Grutatext, and E">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Markdown Syntax | SuJerry's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8828472b36a6d76850b288afe56fdf20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">SuJerry's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            Tags
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Markdown Syntax
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-09-16T13:44:01+08:00" content="2015-09-16">
+            2015-09-16
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Markdown/" itemprop="url" rel="index">
+                  <span itemprop="name">Markdown</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/09/16/markdown-syntax/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/16/markdown-syntax/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>本文译于<a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">Markdown</a>英文文档</p>
+<hr>
+<h2 id="综述"><a href="#综述" class="headerlink" title="综述:"></a>综述:</h2><h3 id="哲学"><a href="#哲学" class="headerlink" title="哲学"></a>哲学</h3><p>Markdown的目的是实现易读易写．</p>
+<p>易读是最重要的．Markdown格式的文件应该像纯文本那样按照原样发表，而不是看起来像使用标签或格式化的指令进行了标记．虽然Markdown的语法受到了现有的几个text-to-HTML格式的影响，包括<a href="http://docutils.sourceforge.net/mirror/setext.html" target="_blank" rel="external">Setext</a>, <a href="http://www.aaronsw.com/2002/atx/" target="_blank" rel="external">atx</a>, <a href="">Textile</a>, <a href="http://docutils.sourceforge.net/rst.html" target="_blank" rel="external">reStructuredText</a>, <a href="http://triptico.com/software/grutatxt.html" target="_blank" rel="external">Grutatext</a>, and <a href="http://ettext.taint.org/doc/" target="_blank" rel="external">EtText</a>, 但是最大的灵感来自于纯文本格式的邮件．</p>
+<p>为了这个目的，Markdown的语法完全由标点字符组成，选取的标点字符最大程度的表达出它所表示的意思．举例来说．星号围绕着一个单词看起来像*强调*．Markdown列表看起来，就是列表．即使是块引用看起来也像引用的文本的样子，假设你曾经使用过email．</p>
+<h3 id="内嵌HTML"><a href="#内嵌HTML" class="headerlink" title="内嵌HTML"></a>内嵌HTML</h3><p>Markdown的语法只为一个目的：作为一种网络的<em>写作</em>格式．</p>
+<p>Markdown并不是要替代HTML或者和它相似．它的语法很少，只是和HTML标签的一个很小的子集相对应．这个观念并不是创建一个更易于嵌入HTML标签的语法．我认为HTML标签已经是很容易插入的了．Markdown的目的就是让它更易于读，写，编辑文章．HTML是一种<em>发布</em>格式；Markdown是一种<em>写作</em>格式．因此，Markdown的格式语法只是解决那些和纯文本有关的问题．</p>
+<p>对于Markdown的语法没有覆盖到的问题，你可以使用HTML．没必要表明你从Markdown转换到了HTML；你只是使用标签而已．</p>
+<p>唯一的限制时块级的HTML元素必须使用空行分开周围的内容，块的开始和结束的标签不能使用Tab或空格缩进，例如：&lt;div&gt;, &lt;table&gt;, &lt;pre>,&lt;p&gt;等等．Markdown非常聪明，并不会围绕HTML的块级标签添加额外（不需要）的&lt;p&gt;标签．</p>
+<p>例如，添加一个HTML的table到Markdown文中：</p>
+<pre><code>This is a regular paragraph.
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Foo&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+This is another regular paragraph.
+</code></pre><p>注意：Markdown的格式语法并不能在块级别的HTML标签中被处理．</p>
+<p>例如：你不能使用Markdown风格的*emphasis*在HTML块中．</p>
+<p>HTML的区段标签可以使用在Markdown的段落，列表，标题中．例如：&lt;span&gt;, &lt;cite&gt;, &lt;del&gt;．你也可以使用HTML标签代替Markdown格式化；例如：如果你喜欢，你可以使用&lt;a&gt;或者&lt;img&gt;标签代替Markdown的链接或图片语法．</p>
+<p>和块级的HTML标签不同的是，Markdown语法是在span级的标签中处理的．</p>
+<h3 id="特殊字符的自动转换"><a href="#特殊字符的自动转换" class="headerlink" title="特殊字符的自动转换"></a>特殊字符的自动转换</h3><p>在HTML中，＇&lt;＇和＇&amp;＇这两个字符需要特殊处理．＇&lt;＇用于标签的开始；＇&amp;＇用于表示HTML实体．如果你想把它们当做普通字符使用，需要转换为＇&lt;＇和＇&amp;＇.</p>
+<p>尤其是＇&amp;＇让网络文档写者头疼．如果你想写＇AT&amp;T＇，你需要写成＇AT&amp;T＇．甚至在URL中的＇&amp;＇符号也需要进行转换．因此，如果你想链接到：</p>
+<pre><code>http://images.google.com/images?num=30&amp;q=larry+bird
+</code></pre><p>你需要在你的链接属性href中把URL该写成：</p>
+<pre><code>http://images.google.com/images?num=30&amp;amp;q=larry+bird
+</code></pre><p>不用说，这很容易忘记，并且可能是在其他网站的验证性错误中最常见的．</p>
+<p>Markdown自然允许你使用这些符号，并且为你考虑到了所有必要的转换．如果你在HTML实体中使用了＇&amp;＇，它保持不变；否则它将转换成＇&amp;＇．</p>
+<p>因此，如果你想在你得文章中包含版权标记，你可以写成：</p>
+<pre><code>&amp;copy;
+</code></pre><p>并且Markdown不会管它．但是如果你写成：</p>
+<pre><code>AT&amp;T
+</code></pre><p>Markdown将把它转换成：</p>
+<pre><code>AT&amp;amp;T
+</code></pre><p>同样的，因为Markdown支持内嵌HTML，如果你使用＇&lt;＇作为HTML标签的分隔符，Markdown将会想这样对待它们．但是如果你写成：</p>
+<pre><code>4 &lt; 5
+</code></pre><p>Markdown将会把它转换成：</p>
+<pre><code>4 &amp;lt; 5
+</code></pre><p>然而，在Markdown的code spans and blocks中，＇&lt;＇和＇&amp;＇总是自动转换．这样使用Markdown来写HTML代码会很简单．（不同于原始的HTML,HTML语法的格式太可怕了，因为每一个＇&lt;＇和＇&amp;＇在你的代码示例中都要被转换．）</p>
+<hr>
+<h2 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h2><h3 id="段落和行分隔符"><a href="#段落和行分隔符" class="headerlink" title="段落和行分隔符"></a>段落和行分隔符</h3><p>段落就是一个或多个连续的文本行，由一个或多个空行分隔．（空行就是任何看起来只包含空格或Tab的行．）普通的段落不应该使用空格或Tab缩进．</p>
+<p>＂一个或多个连续的文本行＂规则的含义是Markdown支持”hard-wrapped”文本段．这和大部分其他的text-to-HTML格式化程序（包括Movable Type的＂转换为换行符＂选项）有很大不同，这些格式化程序将每个段落中的换行字符转换成&lt;br /&gt;标签．</p>
+<p>当你想要使用Markdown插入一个&lt;br /&gt;标签时，你要使用两个或更多的空格结束这一行，然后输入return．</p>
+<p>是的，这需要更大的努力来产生一个&lt;br /&gt;，但是一个过分简单化的”每一个换行符是一个&lt;br /&gt;”规则对Markdown不起作用．当你使用hard breaks来格式化它们时,Markdown的email风格的块引用和多段落列表条目做的更好，看起来也更好.</p>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>Markdown支持两种类型的标题，<a href="http://docutils.sourceforge.net/mirror/setext.html" target="_blank" rel="external">Setext</a>和<a href="http://www.aaronsw.com/2002/atx/" target="_blank" rel="external">atx</a>．</p>
+<p>Setext类型的标题是”underlined”，使用等号（对于一级标题）和破折号（对于二级标题）．例如：</p>
+<pre><code>This is an H1
+=============
+This is an H2
+-------------
+</code></pre><p>效果如下：</p>
+<p><img src="/md1.png" alt=""></p>
+<p>任何数量下划的＇=＇或＇-＇都可以</p>
+<p>Atx类型的标题在行开始位置使用1-6个＇#＇字符，对应标题等级的1-6．例如：</p>
+<pre><code># This is an H1
+
+## This is an H2
+
+###### This is an H6
+</code></pre><p>效果如下：</p>
+<p><img src="/md2.png" alt=""></p>
+<p>你可以随意的使用＂闭合＂的atx类型的标题．这只是装饰用的，如果你认为它看起来更美观，你可以使用．标题前后的＇#＇符号的个数可以不同．（标题前面的＇#＇的个数决定了标题的等级）：</p>
+<pre><code># This is an H1 #
+
+## This is an H2 ##
+
+### This is an H3 ###
+</code></pre><p>效果如下：</p>
+<p><img src="/md3.png" alt=""></p>
+<h3 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h3><p>对于块引用，Markdown使用email风格的＇&gt;＇字符来实现．如果你熟悉在email消息中引用文章的段落，那么你就知道怎么在Markdown中创建一个块引用．如果你hard wrap文本并且在每行之前加入＇&gt;＇符号，那看上去会很不错．</p>
+<pre><code>&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+&gt; consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+&gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+&gt;
+&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+&gt; id sem consectetuer libero luctus adipiscing.
+</code></pre><p>Markdown允许你只需要在每段的第一行前面加上＇&gt;＇就可以：</p>
+<pre><code>&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+
+&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.
+</code></pre><p>效果如下：</p>
+<hr>
+<blockquote>
+<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,<br>consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.<br>Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse<br> id sem consectetuer libero luctus adipiscing.</p>
+</blockquote>
+<hr>
+<p>可以通过添加额外的＇&gt;＇来进行块引用的嵌套（例如：一个块引用在另一个块引用里面）：</p>
+<pre><code>&gt; This is the first level of quoting
+&gt;
+&gt; &gt; This is nested blockquote.
+&gt;
+&gt; Back to the first level.
+</code></pre><p>效果如下：</p>
+<hr>
+<blockquote>
+<p>This is the first level of quoting</p>
+<blockquote>
+<p>This is nested blockquote.</p>
+</blockquote>
+<p>Back to the first level.</p>
+<hr>
+</blockquote>
+<p>块引用可以包含Markdown的其他元素，包括标题，列表，代码块：</p>
+<pre><code>&gt; ## This is a header.
+&gt;
+&gt; 1.    This is the first list item.
+&gt; 2.    This is the second list item.
+&gt;
+&gt; Here is some example code;
+&gt;
+&gt;    return shell_exec(&quot;echo &amp;input | &amp;markdown_script&quot;);
+</code></pre><p>效果如下：</p>
+<p><img src="/md4.png" alt=""></p>
+<p>任何体面的文本编辑器都应该使email风格的引用简单化．例如：BBEdit，你可以从文本菜单中进行选择或者增加引用级．</p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>Markdown支持有序的（数字的）和无序的（分项的）列表．</p>
+<p>无需列表使用　＇*＇,　＇+＇,　＇-＇ 作为列表标记：</p>
+<pre><code>* Red
+* Green
+* Blue
+</code></pre><p>使用 ＇+＇ 和 ＇-＇ 是等效的：</p>
+<pre><code>- Red
+- Green
+- Blue
+</code></pre><p>效果是：</p>
+<hr>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<hr>
+<p>有序列表使用数字后面紧跟着英文句点：</p>
+<pre><code>1. Bird
+2. McHale
+3. Parish
+</code></pre><p>效果是：</p>
+<hr>
+<ol>
+<li>Bird</li>
+<li>McHale</li>
+<li>Parish</li>
+</ol>
+<hr>
+<p>注意：你用来进行标记的数字对于Markdown产生的HTML结果的输出并没有影响．Markdown产生的上面列表的HTML形式是：</p>
+<pre><code>&lt;ol&gt;
+&lt;li&gt;Bird&lt;/li&gt;
+&lt;li&gt;McHale&lt;/li&gt;
+&lt;li&gt;Parish&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre><p>如果你在Markdown里写成下面的形式：</p>
+<pre><code>1. Bird
+1. McHale
+1. Parish
+</code></pre><p>或者甚至是：</p>
+<pre><code>3. Bird
+1. McHale
+8. Parish
+</code></pre><p>结果都一样：</p>
+<hr>
+<ol>
+<li>Bird</li>
+<li>McHale</li>
+<li>Parish</li>
+</ol>
+<hr>
+<p>实际上，你将会得到相同的HTML输出．问题在于，如果你想的话，你可以在你的顺序列表里使用有序数，这样的话，在你的源码里的数字会和你发布的HTML中的数字相匹配．但是如果你想偷懒的话，大可不必如此．</p>
+<p>然而如果你懒于进行列表编号，你仍然应该让列表从1开始．在将来的某个时候，Markdown可能会支持以任意数字开始的有序列表．</p>
+<p>典型的列表编号从最左边开始，但可能会被最多三个空格缩进．列表标记后面必须跟着至少一个空格或Tab键．</p>
+<p>为了让列表看起来更美观，你可以进行悬挂式缩进：</p>
+<pre><code>*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+    viverra nec, fringilla in, laoreet vitae, risus.
+*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+    Suspendisse id sem consectetuer libero luctus adipiscing.
+</code></pre><p>效果是：</p>
+<hr>
+<ul>
+<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br>Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,<br>viverra nec, fringilla in, laoreet vitae, risus.</li>
+<li>Donec sit amet nisl. Aliquam semper ipsum sit amet velit.<br>Suspendisse id sem consectetuer libero luctus adipiscing.</li>
+</ul>
+<hr>
+<p>如果你想偷懒的话，大可不必如此：</p>
+<pre><code>*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+viverra nec, fringilla in, laoreet vitae, risus.
+*    Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+Suspendisse id sem consectetuer libero luctus adipiscing.
+</code></pre><p>效果是：</p>
+<hr>
+<ul>
+<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br>Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,<br>viverra nec, fringilla in, laoreet vitae, risus.</li>
+<li>Donec sit amet nisl. Aliquam semper ipsum sit amet velit.<br>Suspendisse id sem consectetuer libero luctus adipiscing.</li>
+</ul>
+<hr>
+<p>如果列表条目被空行分隔，Markdown将用&lt;p&gt;标签在HTML的输出中包装条目．例如，这个输入：</p>
+<pre><code>*    Bird
+*    Magic
+</code></pre><p>将会变为：</p>
+<pre><code>&lt;ul&gt;
+&lt;li&gt;Bird&lt;/li&gt;
+&lt;li&gt;Magic&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p>但是这个：</p>
+<pre><code>*    Bird
+
+*    Magic
+</code></pre><p>将会变为：</p>
+<pre><code>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Bird&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Magic&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p>列表条目可能由多个段落组成．在一个列表条目中的每一个后续段落必须使用4个空格或一个Tab键进行缩进．</p>
+<pre><code>1.  This is a list item with two paragraphs. Lorem ipsum dolor
+    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+    mi posuere lectus.
+
+    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+    sit amet velit.
+
+2.  Suspendisse id sem consectetuer libero luctus adipiscing.
+</code></pre><p>如果对于后续段落的每行进行缩进，看起来会更美，当然了，Markdown也允许你偷懒：</p>
+<pre><code>*    This is a list item with two paragraphs.
+
+    This is the second paragraph in the list item. You are
+only required to indent the first line. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit.
+
+*    Another item in the same list.
+</code></pre><p>效果是：</p>
+<hr>
+<ul>
+<li><p>This is a list item with two paragraphs.</p>
+<p>This is the second paragraph in the list item. You are<br>only required to indent the first line. Lorem ipsum dolor<br>sit amet, consectetuer adipiscing elit.</p>
+</li>
+<li><p>Another item in the same list.</p>
+</li>
+</ul>
+<hr>
+<p>把块引用放入列表条目中，块引用的＇&gt;＇分隔符需要进行缩进：</p>
+<pre><code>* A list item with a blockquote:
+
+    &gt; This is a blockquote
+    &gt; inside a list item.
+</code></pre><p>把一个代码块放到列表里，代码块需要被缩进两次，也就是8个空格或者两个Tab:</p>
+<pre><code>*   A list item with a code block:
+
+    &lt;code goes here&gt;
+</code></pre><p>值的注意的是，你有可能无意中使用了有序列表，比如想这样：</p>
+<pre><code>1986. What a great season.
+</code></pre><p>效果如下：</p>
+<pre><code>1. What a great season.
+</code></pre><p>换句话说，在行首出现<em>数字－句点－空白</em>序列．为了避免这种情况，你可以使用反斜杠标识句点为普通字符：</p>
+<pre><code>1986\. What a great season.
+</code></pre><h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>提前格式化的代码块是用来编程或者标记源代码的．代码块的行是按照原样显示，而不是形成普通的段．Markdown会使用&lt;pre&gt;和&lt;code&gt;标签将一块代码包起来．</p>
+<p>在Markdown中使用代码块，只需要在块的每行进行缩进至少4个空格或1个Tab键．例如：</p>
+<pre><code>This is a normal paragraph:
+   This is a code block.
+</code></pre><p>效果如下：</p>
+<hr>
+<p>This is a normal paragraph:</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    return 0;
+}
+</code></pre><hr>
+<p>Markdown将会产生：</p>
+<pre><code>&lt;p&gt;This is a normal paragraph;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;This is a code block.
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre><p>代码块每行的缩进（4个空格或1个Tab）被删除了．</p>
+<p>例如：</p>
+<pre><code>Here is an example of AppleScript:
+
+    tell application &quot;Foo&quot;
+        beep
+    end tell
+</code></pre><p>将会返回：</p>
+<pre><code>&lt;p&gt;Here is an example of AppleScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tell application &quot;Foo&quot;
+    beep
+end tell
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre><p>当代码块遇到一个没有缩进的行（或者文章结尾）时就停止．</p>
+<p>在一个代码块中，＇&amp;＇和＇&lt;＇, ＇&gt;＇会被自动的转换为HTML实体．这会让用Markdown来包含HTML代码变的简单，只需要粘贴和缩进就行，Markdown会处理＇&amp;＇, ＇&lt;＇,＇&gt;＇的麻烦编码．例如：</p>
+<pre><code>&lt;div class=&quot;footer&quot;&gt;
+    &amp;copy; 2004 Foo Corporation
+&lt;/div&gt;
+</code></pre><p>将会转换为：</p>
+<pre><code>&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&quot;footer&quot;&amp;gt;
+    &amp;amp;copy; 2004 Foo Corporation
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre><p>正常的Markdown语法并不会在代码中进行处理．例如：星号在代码块中就只是文字星号．这就意味着使用Markdown编写Markdown自己的语法也会很简单．</p>
+<h3 id="水平分隔线"><a href="#水平分隔线" class="headerlink" title="水平分隔线"></a>水平分隔线</h3><p>你可以将至少三个＇-＇, ＇*＇或 ＇_＇单独放在一行中来产生水平分割吸纳标签（&lt;hr /&gt;）．你也可以在放置＇-＇或＇*＇的行中使用空格．下面的没一行将会产生一个分隔线：</p>
+<pre><code>* * * 
+
+***
+
+******
+
+- - -
+
+-------------------------
+</code></pre><hr>
+<h2 id="跨度元素"><a href="#跨度元素" class="headerlink" title="跨度元素"></a>跨度元素</h2><h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>Markdown支持两种类型的链接：<em>内联</em>和<em>引用</em>．</p>
+<p>在这两种类型中，链接文本由[方括号]分隔．</p>
+<p>创建内联链接：紧跟着使用方括号包含的文本后面使用一组常规括号．在括号里放置你想要链接到的URL，对于链接还有一个可选的<em>标题</em>，都包含在括号里．例如：</p>
+<pre><code>This is [an example](http://example.com/ &quot;Title&quot;) inline link.
+
+[This link](http://example.net/) has no title attribute.
+</code></pre><p>效果是：</p>
+<pre><code>This is [an example](http://example.com/ &quot;Title&quot;) inline link.
+
+[This link](http://example.net/) has no title attribute.
+</code></pre><p>将会产生：</p>
+<pre><code>&lt;p&gt;This is &lt;a href=&quot;http://example.com/&quot; title=&quot;Title&quot;&gt;
+an example&lt;/a&gt; inline link.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://example.net/&quot;&gt;This link&lt;/a&gt; has no
+title attribute.&lt;/p&gt;
+</code></pre><p>如果你引用了在同一台服务器上的资源，你可以使用相对路径：</p>
+<pre><code>See my [About](/about/) page for datails.
+</code></pre><p>效果是：</p>
+<pre><code>See my [About](/about/) page for datails.
+</code></pre><p>引用类型的链接：是使用第二组方括号，在里面放置你选择识别链接的标签：</p>
+<pre><code>This is [an example][id] reference-style link.
+</code></pre><p>你可以随意的使用空格来分隔这两组方括号：</p>
+<pre><code>This is [an example]    [id] reference-style link.
+</code></pre><p>因此，你需要在文章的某个地方(任何地方)使用单独一行来定义你的链接标签：</p>
+<pre><code>[id]: http;//example.com/ &quot;Optional Title Here&quot;
+</code></pre><p>即：</p>
+<ul>
+<li>方括号中包含链接标识符（任意的使用最多三个空格从左边进行缩进）;</li>
+<li>紧跟着一个冒号；</li>
+<li>紧跟着一个或多个空格（或Tab）；</li>
+<li>紧跟着链接的URL；</li>
+<li>任意的跟着链接的标题属性．包含在单引号或双引号中，或者包含在圆括号中．</li>
+</ul>
+<p>下面三种链接的定义表达的意义相同：</p>
+<pre><code>[foo]: http://example.com/ &quot;Optional Title Here&quot;
+[foo]: http://example.com/ &apos;Optional Title Here&apos;
+[foo]: http://example.com/ (Optional Title Here)
+</code></pre><p>注意：在Markdown.pl 1.0.1中有一个小错误，不能使用单引号来包含链接的标题．</p>
+<p>链接的URL可以随意的被尖括号包含．</p>
+<pre><code>[id]: &lt;http://example.com/&gt;    &quot;Optional Title Here&quot;
+</code></pre><p>你可以把标题属性放到下一行，并用空格或Tab键来填充，这样当URL比较长时看起来会好些：</p>
+<pre><code>[id]: http://example.com/longish/path/to/resource/here
+    &quot;Optional Title Here&quot;
+</code></pre><p>链接的定义仅仅是在Markdown处理过程中创建链接，并且从你的HTML输出文件中被删去．</p>
+<p>链接定义的名字可以由字母，数字，空格和标点符号组成，但是大小写是不敏感的．例如如下两个链接是相同的；</p>
+<pre><code>[link text][a]
+[link text][A]
+</code></pre><p><em>隐式链接的名字</em>允许你忽略链接名，这样链接文本本身会成为链接名．只需要使用一对空的方括号就行，例如：链接”Google”到google.com，你可以这样写：</p>
+<pre><code>[Google][]
+</code></pre><p>然后定义链接：</p>
+<pre><code>[Google]: http://google.com/
+</code></pre><p>因为链接名可能包含空格，这样的简写对于链接文本是多个单词的情况时也适用：</p>
+<pre><code>Visit [Daring Fireball][] for more information.
+</code></pre><p>然后定义链接：</p>
+<pre><code>[Daring Fireball]: http://daringfireball.net/
+</code></pre><p>链接定义可以放在Markdown文中的任何位置．我认为应该直接把它们放在每个使用它们的段落的后面，你也可以把它们放在文章的最后面，有点像脚注．</p>
+<p>几个还在工作着的引用链接：</p>
+<pre><code>I get 10 times more traffic from [Google] [1] than from
+[Yahoo] [2] or [MSN] [3].
+
+[1]: http://google.com/            &quot;Google&quot;
+[2]: http://search.yahoo.com/      &quot;Yahoo Search&quot;
+[3]: http://search.msn.com/        &quot;MSN Search&quot;
+</code></pre><h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><p>Markdown使用＇*＇和＇_＇来表示强调．使用单个＇*＇或＇_＇包围的文字将会转换为被HTML标签&lt;em&gt;包围；使用两个＇*＇或＇_＇则转换为被HTML&lt;strong&gt;标签包围．例如：</p>
+<pre><code>*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+</code></pre><p>将会产生：</p>
+<pre><code>&lt;em&gt;single asterisks&lt;/em&gt;
+
+&lt;em&gt;single underscores&lt;/em&gt;
+
+&lt;strong&gt;double asterisks&lt;/strong&gt;
+
+&lt;strong&gt;double underscores&lt;/strong&gt;
+</code></pre><p>你可以使用你喜欢的风格；唯一的限制是，强调的开始和结尾处必须使用相同的符号．</p>
+<p>强调可以用在一个词的中间：</p>
+<pre><code>un*frigging*believable
+</code></pre><p>但是如果＇*＇或＇_＇两边都是空格的话，＇*＇或＇_＇将会被当做普通文本来对待．</p>
+<p>如果在一个可能被当做强调符号的位置使用普通的＇*＇或＇_＇字符的话，你可以使用转义符：</p>
+<pre><code>\*this text is surrounded by literal asterisks\*
+</code></pre><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>为了显示一段代码，使用使用符号＇`＇（撇号）包围这段代码．不像预先处理好的代码块，一段代码可能是在一个段正常文本内．例如：</p>
+<pre><code>Use the `printf()` function.
+</code></pre><p>效果是：</p>
+<hr>
+<p> Use the <code>printf()</code> function.</p>
+<hr>
+<p>将会产生：</p>
+<pre><code>&lt;p&gt;Use the &lt;code&gt;printf()&lt;/code&gt; function.&lt;/p&gt;
+</code></pre><p>为了可是在一个代码段中使用撇号，你可以在开始和结尾处使用多个撇号:</p>
+<pre><code>``There is a literal backtick (`) here.``
+</code></pre><p>结果是：</p>
+<hr>
+<p><code>There is a literal backtick (`) here.</code></p>
+<hr>
+<p>将会产生：</p>
+<pre><code>&lt;p&gt;&lt;code&gt;There is a literal backtick (`) here.&lt;/code&gt;&lt;/p&gt;
+</code></pre><p>包围一个代码段的撇号分隔符可以包含空格，一个在开始位置的后面，一个在结束位置的前面．这可以让你把作为文本的撇号放在代码段的开始或结束处：</p>
+<pre><code>A single backtick in a code span: `` ` ``
+
+A backtick-delimited string in a code span: `` `foo` ``
+</code></pre><p>一个代码段中的＇&amp;＇和尖括号会自动的转换为HTML实体，这让包含HTML标签示例变的简单．Markdown将会返回：</p>
+<pre><code>Please don&apos;t use any `&lt;blink&gt;` tags.
+</code></pre><p>效果是：</p>
+<hr>
+<p> Please don’t use any <code>&lt;blink&gt;</code> tags.</p>
+<hr>
+<p>到：</p>
+<pre><code>&lt;p&gt;Please don&apos;t use any &lt;code&gt;&amp;lt;blink&amp;gt;&lt;/code&gt; tags.&lt;/p&gt;
+</code></pre><p>你可以这样写：</p>
+<pre><code>`&amp;#8212;` is the decimal-encoded equivalent of `&amp;mdash;`.
+</code></pre><p>来产生：</p>
+<pre><code>&lt;p&gt;&lt;code&gt;&amp;amp;#8212;&lt;/code&gt; is the decimal-encoded
+equivalent of &lt;code&gt;&amp;amp;mdash;&lt;/code&gt;.&lt;/p&gt;
+</code></pre><h3 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h3><p>不可否认的，很难设计一个＂自然＂的语法来把图像放置到纯文本文件的格式中．</p>
+<p>Markdown会像使用链接的语法那样使用图像语法，允许两种类型：<em>内联</em>和<em>引用</em>．</p>
+<p>内联图像语法：</p>
+<pre><code>![Alt text](/path/to/img.jpg)
+
+![Alt text](/path/to/img.jpg &quot;Optional title&quot;)
+</code></pre><p>即：</p>
+<hr>
+<ul>
+<li>一个感叹号：!</li>
+<li>后面跟着一组方括号，为替换图像的文字</li>
+<li>后面跟着一对圆括号，包含图像的URL或者路径，然后是使用单引号或双引号包含的标题</li>
+</ul>
+<hr>
+<p>引用风格的图像语法：</p>
+<pre><code>![Alt text][id]
+</code></pre><p>“id”为定义的图像引用的名字．图像引用的定义使用的语法和链接引用相同．</p>
+<pre><code>[id]: url/to/image  &quot;Optional title attribute&quot;
+</code></pre><p>在撰写文本时，Markdown没有语法指定图片的大小；如果这对你很重要，你可以使用规则的HTML&lt;img&gt;标签．</p>
+<hr>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="自动链接"><a href="#自动链接" class="headerlink" title="自动链接"></a>自动链接</h3><p>Markdown支持一种快捷方式的创建URL或email地址的＂自动＂链接：只使用尖括号包含URL或email地址．意思是如果你想显示URL或email地址的实际内容，以及是一个可点击的链接，你可以这样做：</p>
+<pre><code>&lt;http://example.com/&gt;
+</code></pre><p>效果是：</p>
+<hr>
+<p> <a href="http://example.com/" target="_blank" rel="external">http://example.com/</a></p>
+<hr>
+<p>Markdown将会把它转换为：</p>
+<pre><code>&lt;a href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;
+</code></pre><p>Email地址的自动链接和这个相似，除了Markdown会执行一点随机的十进制和十六进制的编码来帮助你掩盖地址，这是为了防止垃圾邮件．例如：</p>
+<pre><code>&lt;address@example.com&gt;
+</code></pre><p>将会被转换为下面的代码:</p>
+<pre><code>&lt;a href=&quot;&amp;#x6D;&amp;#x61;i&amp;#x6C;&amp;#x74;&amp;#x6F;:&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;
+&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;&amp;#109;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;
+&amp;#109;&quot;&gt;&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;
+&amp;#109;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;
+</code></pre><p>这将会作为一个链接到”address@example.com”的链接在浏览器中进行渲染．</p>
+<p>(上面这种编码技巧会欺骗很多收集地址的爬虫，但并不是所有的．有总比没有好，但是这样的地址发布后，最终可能会开始收集垃圾邮件．)</p>
+<h3 id="反斜杠转义"><a href="#反斜杠转义" class="headerlink" title="反斜杠转义"></a>反斜杠转义</h3><p>Markdown允许你使用反斜杠转义，来使用那些在Markdown的格式化语法中有特殊意义的符号．例如，如果你想使用作为文本的星号（代替HTML的&lt;em&gt;标签）来包裹一个单词，你可以在星号前使用反斜杠，像这样：</p>
+<pre><code>\*literal asterisks\*
+</code></pre><p>Markdown为下面的字符提供反斜杠转义：</p>
+<pre><code>\   反斜杠
+`   撇号
+*   星号
+_   下划线
+{}  花括号
+[]  方括号
+()  圆括号
+#   井号
++   加号
+-   减号（连字号）
+.   点
+!   感叹号
+</code></pre><hr>
+<h2 id="个人总结"><a href="#个人总结" class="headerlink" title="个人总结"></a>个人总结</h2><p>对于这篇Markdown的语法说明，开始翻译时，看到网上已经有人翻译过了，就迟疑了，不知道是否有做的必要，将他们的译文和原文对照后，我感觉还是见仁见智，每个人对于原文的理解不同，表达自然不同．因此，我打算用自己的理解来完成这篇译文,耗时多天终于译完,这是我的第一篇完整的译文，能坚持译完还是很高兴的．由于译者能力有限，文中可能存在多出纰漏，希望大家多多指正．</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/markdown/" rel="tag">#markdown</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/23/alu-crt-t/" rel="prev">Chinese Remainder Theorem</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/11/hexo-quick-start/" rel="next">Hexo Quick Start</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/09/16/markdown-syntax/"
+                   data-title="Markdown Syntax" data-url="http://sujerry.com/2015/09/16/markdown-syntax/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/tempo.jpg" alt="Jerry Wang" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Jerry Wang</p>
+        </div>
+
+        <p class="site-description motion-element" itemprop="description">Every single day without dancing is one day we betrayed of life.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">categories</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sujerry" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1955496293" target="_blank">Weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.kennethreitz.org/" target="_blank">kennethreitz</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cyberciti.biz/" target="_blank">nixCraft</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cnblogs.com/peida/" target="_blank">Peida</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/sunboy_2050" target="_blank">Sunboy</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://macshuo.com/" target="_blank">MacTalk</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://qianduanblog.com/" target="_blank">QDBlog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://heroicyang.com/" target="_blank">Hero</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.skymoon.biz/" target="_blank">Skymoon</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.kuangbin.net/" target="_blank">KuangBin</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/lttree" target="_blank">LTtree</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://yife.im/" target="_blank">FlyingBull</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哲学"><span class="nav-number">1.1.</span> <span class="nav-text">哲学</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内嵌HTML"><span class="nav-number">1.2.</span> <span class="nav-text">内嵌HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊字符的自动转换"><span class="nav-number">1.3.</span> <span class="nav-text">特殊字符的自动转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块元素"><span class="nav-number">2.</span> <span class="nav-text">块元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#段落和行分隔符"><span class="nav-number">2.1.</span> <span class="nav-text">段落和行分隔符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标题"><span class="nav-number">2.2.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块引用"><span class="nav-number">2.3.</span> <span class="nav-text">块引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">2.4.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码块"><span class="nav-number">2.5.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#水平分隔线"><span class="nav-number">2.6.</span> <span class="nav-text">水平分隔线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨度元素"><span class="nav-number">3.</span> <span class="nav-text">跨度元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链接"><span class="nav-number">3.1.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强调"><span class="nav-number">3.2.</span> <span class="nav-text">强调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">3.3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像"><span class="nav-number">3.4.</span> <span class="nav-text">图像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动链接"><span class="nav-number">4.1.</span> <span class="nav-text">自动链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反斜杠转义"><span class="nav-number">4.2.</span> <span class="nav-text">反斜杠转义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人总结"><span class="nav-number">5.</span> <span class="nav-text">个人总结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" align="center">
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry Wang</span>
+</div>
+
+<!--jerrywang
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+-->
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sujerry"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

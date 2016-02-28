@@ -1,0 +1,1019 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <meta name="google-site-verification" content="VvyjvVXcJQa0QklHipu6pwm2PJGnnchIqX7s5JbbT_0" />
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="Every single day without dancing is one day we betrayed of life." />
+
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/bitbug_favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="基本字符串操作所有标准的序列操作（索引、分片、乘法、判断成员资格、求长度、取最小值和最大值）对字符串同样试用．但是字符串都是不可变的．
+&amp;gt;&amp;gt;&amp;gt; web = &amp;apos;http://www.python.org&amp;apos;
+&amp;gt;&amp;gt;&amp;gt; web[-3:] = &amp;apos;com&amp;apos;
+Traceback (most recent call last):
+  Fi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Chapter 3 使用字符串">
+<meta property="og:url" content="http://sujerry.com/2015/09/26/python-3/index.html">
+<meta property="og:site_name" content="SuJerry's Blog">
+<meta property="og:description" content="基本字符串操作所有标准的序列操作（索引、分片、乘法、判断成员资格、求长度、取最小值和最大值）对字符串同样试用．但是字符串都是不可变的．
+&amp;gt;&amp;gt;&amp;gt; web = &amp;apos;http://www.python.org&amp;apos;
+&amp;gt;&amp;gt;&amp;gt; web[-3:] = &amp;apos;com&amp;apos;
+Traceback (most recent call last):
+  Fi">
+<meta property="og:updated_time" content="2015-09-28T01:47:29.501Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python Chapter 3 使用字符串">
+<meta name="twitter:description" content="基本字符串操作所有标准的序列操作（索引、分片、乘法、判断成员资格、求长度、取最小值和最大值）对字符串同样试用．但是字符串都是不可变的．
+&amp;gt;&amp;gt;&amp;gt; web = &amp;apos;http://www.python.org&amp;apos;
+&amp;gt;&amp;gt;&amp;gt; web[-3:] = &amp;apos;com&amp;apos;
+Traceback (most recent call last):
+  Fi">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Python Chapter 3 使用字符串 | SuJerry's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8828472b36a6d76850b288afe56fdf20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">SuJerry's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            Tags
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Python Chapter 3 使用字符串
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-09-26T08:14:13+08:00" content="2015-09-26">
+            2015-09-26
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Python/" itemprop="url" rel="index">
+                  <span itemprop="name">Python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/09/26/python-3/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/26/python-3/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="基本字符串操作"><a href="#基本字符串操作" class="headerlink" title="基本字符串操作"></a>基本字符串操作</h2><p>所有标准的序列操作（索引、分片、乘法、判断成员资格、求长度、取最小值和最大值）对字符串同样试用．但是字符串都是不可变的．</p>
+<pre><code>&gt;&gt;&gt; web = &apos;http://www.python.org&apos;
+&gt;&gt;&gt; web[-3:] = &apos;com&apos;
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: &apos;str&apos; object does not support item assignment
+</code></pre><h2 id="字符串格式化：精简版"><a href="#字符串格式化：精简版" class="headerlink" title="字符串格式化：精简版"></a>字符串格式化：精简版</h2><p>字符串格式化使用字符串格式化操作符＇%＇来实现．</p>
+<p>在百分号的左侧放置一个字符串（格式化字符串），而右侧放置希望格式化的值．可以使用一个值，如一个字符串或者数字，也可以使用多个值的元组或字典．</p>
+<p>一般情况下使用元组：</p>
+<pre><code>&gt;&gt;&gt; format = &quot;hello %s %s enough for ya?&quot;
+&gt;&gt;&gt; values = (&apos;world&apos;, &apos;hot&apos;)
+&gt;&gt;&gt; print format % values
+hello world hot enough for ya?
+</code></pre><p><hr></p>
+<p><font color="red">注意：</font>如果使用序列代替元组，序列就会被解释为一个值．只有元组和字典可以格式化一个以上的值．</p>
+<hr>
+
+<p>格式化字符串的＇%s＇部分是转换说明符，它们标记了需要插入转换值的位置．＇s＇表示值会被格式化为字符串——如果不是字符串，则会用 str 将其转换为字符串．</p>
+<p><hr></p>
+<p><font color="red">注意：</font>如果想在格式化字符串里面包含百分号，那么必须使用＇%%＇，这样 Python 就不会将百分号误认为时转换说明符了．</p>
+<hr>
+
+<p>如果要格式化实数（浮点数），可以使用＇f＇说明符类型，同时提供所需的精度：一个句点再加上希望保留的小数位数．因为格式化说明符总是以表示类型的字符结束，所以精度应该放在类型字符前面：</p>
+<pre><code>&gt;&gt;&gt; format = &apos;Pi with three decimals: %.3f&apos;
+&gt;&gt;&gt; from math import pi
+&gt;&gt;&gt; print format % pi
+Pi with three decimals: 3.142
+</code></pre><h3 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h3><p>string 模块提供另外一种格式化值的方法：模板字符串．如下所示，substitute 这个模板方法会用传递进来的关键字参数 foo 替换字符串中的 $foo:</p>
+<pre><code>&gt;&gt;&gt; from string import Template
+&gt;&gt;&gt; s = Template(&apos;$x, glorious $x!&apos;)
+&gt;&gt;&gt; s.substitute(x=&apos;slurm&apos;)
+&apos;slurm, glorious slurm!&apos;
+&gt;&gt;&gt; s
+&lt;string.Template object at 0x7fda1d611950&gt;
+</code></pre><p>如果替换字段是单词的一部分，那么参数名就必须用括号括起来，从而准确指明结尾：</p>
+<pre><code>&gt;&gt;&gt; s = Template(&quot;It is ${x}tastic!&quot;)
+&gt;&gt;&gt; s.substitute(x=&apos;slurm&apos;)
+&apos;It is slurmtastic!&apos;
+</code></pre><p>可以使用 $$ 插入美元符号：</p>
+<pre><code>&gt;&gt;&gt; s = Template(&quot;Make $$ selling $x!&quot;)
+&gt;&gt;&gt; s.substitute(x=&apos;slurm&apos;)
+&apos;Make $ selling slurm!&apos;
+</code></pre><p>除了关键字参数之外，还可以使用字典变量提供值/名称对（参见第四章）：</p>
+<pre><code>&gt;&gt;&gt; s = Template(&apos;A $thing must never $action.&apos;)
+&gt;&gt;&gt; d = {}
+&gt;&gt;&gt; d[&apos;thing&apos;] = &apos;gentleman&apos;
+&gt;&gt;&gt; d[&apos;action&apos;] = &apos;show his socks&apos;
+&gt;&gt;&gt; s.substitute(d)
+&apos;A gentleman must never show his socks.&apos;
+</code></pre><p>方法 safe_substitute 不会因缺少值或者不正确使用 $ 字符而除错．</p>
+<h2 id="字符串格式化：完整版"><a href="#字符串格式化：完整版" class="headerlink" title="字符串格式化：完整版"></a>字符串格式化：完整版</h2><p>格式化操作符的右操作数可以是任何东西，如果是元组或者映射类型（如字典），那么字符串格式化将会有所不同．</p>
+<p>如果右操作数是元组的话，则其中的每一个元素都会被单独格式化，每个值都需要一个对应的转换说明符．</p>
+<p><hr></p>
+<p><font color="red">注意：</font>如果需要转换的元组作为转换表达式的一部分存在，那么必须将它用圆括号括起来．以避免出错．</p>
+<pre><code>&gt;&gt;&gt; &apos;%s plus %s equals %s&apos; % (1, 1, 2)
+&apos;1 plus 1 equals 2&apos;
+&gt;&gt;&gt; &apos;%s plus %s equals %s&apos; % 1, 1, 2
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: not enough arguments for format string
+&gt;&gt;&gt; &apos;%s plus %s equals %s&apos; % (1, 1, 2, 3)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: not all arguments converted during string formatting
+&gt;&gt;&gt; &apos;%s plus %s equals %s&apos; % (1, 1,)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: not enough arguments for format string
+</code></pre><hr>
+
+<p>基本的转换说明符包括以下部分．注意，这些项的顺序是至关重要的．</p>
+<pre><code>(1) % 字符：标记转换说明符的开始．
+(2) 转换标志（可选）：
+    - 　表示左对齐
+    + 　表示在转换值之前要加上正负号
+    “”　（空白字符）表示正数之前保留空格
+    0   表示转换值若位数不够则用 0 填充
+(3) 最小字段宽度（可选）：转换后的字符串至少应该具有该值指定的宽度．如果是 * ，则宽度会从值元组中读出．
+(4) 点（.）后跟精度值（可选）：
+        如果转换的是实数，精度值就表示出现在小数点后的位数．
+        如果转换的是字符串，那么该数字就表示最大字段宽度．
+        如果是 * ，那么精度将会从元组中读出．
+(5) 转换类型：
+　　　　　　　表 3-1 　字符串格式化转换类型
+          转换类型　　　　　　　　含义
+            d, i            带符号的十进制整数     
+            o               不带符号的八进制
+            u               不带符号的十进制
+            x               不带符号的十六进制（小写）
+            X               不带符号的十六进制（大写）
+            e               科学计数法表示的浮点数（小写）
+            E               科学计数法表示的浮点数（大写）
+            f, F            十进制浮点数
+            g               如果指数大于 -4 或者小于精度值则和 e 相同，其他情况与 f 相同
+            G　　　　　　　 如果指数大于 -4 或者小于精度值则和 E 相同，其他情况与 F 相同
+            C               单字符（接受整数或者单字符字符串）
+            r               字符串（使用 repr 转换任意 Python 对象）
+            s               字符串（使用 str 转换任意 Python 对象）
+</code></pre><h3 id="简单转换"><a href="#简单转换" class="headerlink" title="简单转换"></a>简单转换</h3><p>简单转换只需要写出转换类型：</p>
+<pre><code>&gt;&gt;&gt; &apos;Price of eggs: $%d&apos; % 42
+&apos;Price of eggs: $42&apos;
+&gt;&gt;&gt; &apos;Hexadecimal price of eggs: %x&apos; % 42
+&apos;Hexadecimal price of eggs: 2a&apos;
+&gt;&gt;&gt; from math import pi
+&gt;&gt;&gt; &apos;Pi: %f...&apos; % pi
+&apos;Pi: 3.141593...&apos;
+&gt;&gt;&gt; &apos;Very inexact estimate of pi: %i&apos; % pi
+&apos;Very inexact estimate of pi: 3&apos;
+&gt;&gt;&gt; &apos;Using str: %s&apos; % 42L
+&apos;Using str: 42&apos;
+&gt;&gt;&gt; &apos;Using repr: %r&apos; % 42L
+&apos;Using repr: 42L&apos;
+</code></pre><h3 id="字符宽度和精度"><a href="#字符宽度和精度" class="headerlink" title="字符宽度和精度"></a>字符宽度和精度</h3><p>转换说明符可以包括宽度和精度．字段宽度是转换后的值所保留的最小字符个数，精度（对于数字转换来说）则是结果中应该包含的小数位数，或者（对于字符串转换来说）是转换后的值所能包含的最大字符个数．</p>
+<pre><code>&gt;&gt;&gt; &apos;%10f&apos; % pi     #  字段宽  10
+&apos;  3.141593&apos;
+&gt;&gt;&gt; &apos;%10.2f&apos; % pi   #  字段宽  10,  精度  2
+&apos;      3.14&apos;
+&gt;&gt;&gt; &apos;%.2f&apos; % pi     #  精度  2
+&apos;3.14&apos;
+&gt;&gt;&gt; &apos;%.5s&apos; % &apos;Guido van Rossum&apos;
+&apos;Guido&apos;
+</code></pre><p>可以使用＇<em>＇（星号）作为字段宽度或者精度（或者两者都使用 </em> ），此时数值会从元组参数中读出：</p>
+<pre><code>&gt;&gt;&gt; &apos;%.*s&apos; % (5, &apos;Gudio van Rossum&apos;)
+&apos;Gudio&apos;
+&gt;&gt;&gt; &apos;%*.*s&apos; % (2, 3, 123.1415926)
+&apos;123&apos;
+&gt;&gt;&gt; &apos;%*.*d&apos; % (2, 3, 123.1415926)
+&apos;123&apos;
+&gt;&gt;&gt; &apos;%*.*f&apos; % (2, 3, 123.1415926)
+&apos;123.142&apos;
+</code></pre><h3 id="符号、对齐和-0-填充"><a href="#符号、对齐和-0-填充" class="headerlink" title="符号、对齐和 0 填充"></a>符号、对齐和 0 填充</h3><p>在字段宽度和精度之前还可以放置一个＂标表＂，该标表可以式零、加号、减号或空格．</p>
+<pre><code># 0 表示将会用数字 0 进行填充
+&gt;&gt;&gt; &apos;%010.2f&apos; % pi
+&apos;0000003.14&apos;
+
+#减号（-）用来左对齐数值：
+&gt;&gt;&gt; &apos;%-10.2f&apos; % pi
+&apos;3.14      &apos;
+
+#空白意味着在整数前加上空格．这在需要对齐正负数时会很有用：
+&gt;&gt;&gt; print (&apos;% 5d&apos; % 10) + &apos;\n&apos; + (&apos;%+5d&apos; % -10)
+   10
+  -10
+
+#加号（+）不管正负数都要输出符号：
+&gt;&gt;&gt; print (&apos;%+5d&apos; % 10) + &apos;\n&apos; + (&apos;%+5d&apos; % -10)
+  +10
+  -10
+</code></pre><h2 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h2><p>字符串方法要比列表的方法丰富的多，这是因为字符串从 string 模板中＂继承＂了很多方法．因为字符串的方法实在太多，这里只介绍一些特别有用的，其他的可参见附录 B.</p>
+<hr>
+
+<p><strong>但是字符串未死</strong></p>
+<p>尽管字符串方法完全来源于 string 模块，但是这个模块还包括一些不能作为字符串方法使用的常量和函数．maketrans 函数就是其中之一，后面会将它和 translate 方法一起介绍．下面是一些有用的字符串常量．</p>
+<ul>
+<li>string.digits:　包含数字 0-9 的字符串</li>
+<li>string.letters:　包含所有字母（大写或小写）的字符串</li>
+<li>string.lowercase:　包含所有小写字母的字符串</li>
+<li>string.printable:　包含所有可打印字符的字符串</li>
+<li>string.punctuation:　包含所有标点的字符串</li>
+<li>string.uppercase:　包含所有大写字母的字符串</li>
+</ul>
+<p>字母字符串常量（例如 string.letters）与地区有关（也就是说，其具体值取决于 Python 所配置的语言）．如果可以确定自己使用的是 ASCII，那么可以在变量中使用 ascii_ 前缀，例如：string.ascii<em>letters那么可以在变量中使用 ascii</em> 前缀，例如：string.ascii_letters（在 Python 3.0 中都这样使用，string.letters 和其相关的内容都会被移除）.</p>
+<hr>
+
+<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p><font color="red"><strong>find</strong></font> 方法可以在一个较长的字符串中查找字符串．它返回子串所在位置的最左端索引．如果没有找到则返回 -1</p>
+<pre><code>&gt;&gt;&gt; &apos;with a moo-moo here.&apos;.find(&apos;moo&apos;)
+7
+&gt;&gt;&gt; title = &quot;Monty Python os Flying Circus&quot;
+&gt;&gt;&gt; title.find(&apos;Monty&apos;)
+0
+&gt;&gt;&gt; title.find(&apos;Python&apos;)
+6
+&gt;&gt;&gt; title.find(&apos;Flying&apos;)
+16
+&gt;&gt;&gt; title.find(&apos;zizizi&apos;)
+-1
+</code></pre><p>这个方法还可以接受可选的起始点和结束点参数：</p>
+<pre><code>&gt;&gt;&gt; subject = &apos;$$$ Get rich now!!! $$$&apos;
+&gt;&gt;&gt; subject.find(&apos;$$$&apos;)
+0
+&gt;&gt;&gt; subject.find(&apos;$$$&apos;, 1)      #　只提供一个起始点
+20
+&gt;&gt;&gt; subject.find(&apos;!!!&apos;)
+16
+&gt;&gt;&gt; subject.find(&apos;!!!&apos;, 0, 16)  #　提供起始点和结束点
+-1
+</code></pre><p>注意，由起始和终止值指定的范围（第二和第三个参数）包含第一个索引，但不包含第二个索引．</p>
+<p>附录 B：rfind, index, rindex, count, startwith, endswith.</p>
+<h3 id="join"><a href="#join" class="headerlink" title="join"></a>join</h3><p><font color="red"><strong>join</strong></font> 方法是非常重要的字符串方法，它是 split 方法的逆方法，用来在队列中添加元素：</p>
+<pre><code>&gt;&gt;&gt; seq = [1, 2, 3, 4, 5]
+&gt;&gt;&gt; sep = &apos;+&apos;
+&gt;&gt;&gt; sep.join(seq)    #　连接数字列表
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: sequence item 0: expected string, int found
+&gt;&gt;&gt; seq = [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;]
+&gt;&gt;&gt; sep.join(seq)    #　连接字符串列表
+&apos;1+2+3+4&apos;
+&gt;&gt;&gt; dirs = &apos;&apos;, &apos;usr&apos;, &apos;bin&apos;, &apos;env&apos;
+&gt;&gt;&gt; &apos;/&apos;.join(dirs)
+&apos;/usr/bin/env&apos;
+&gt;&gt;&gt; print &apos;c:&apos; + &apos;\\&apos;.join(dirs)
+c:\usr\bin\env
+</code></pre><p>可以看到，需要添加的队列元素都必须是字符串．</p>
+<h3 id="lower"><a href="#lower" class="headerlink" title="lower"></a>lower</h3><p><font color="red"><strong>lower</strong></font> 方法返回字符串的小写字母版．</p>
+<pre><code>&gt;&gt;&gt; &apos;Trondheim Hammer Dance&apos;.lower()
+&apos;trondheim hammer dance&apos;
+&gt;&gt;&gt; name = &apos;Gumby&apos;
+&gt;&gt;&gt; names = [&apos;gumby&apos;, &apos;smith&apos;, &apos;jones&apos;]
+&gt;&gt;&gt; if name.lower() in names:
+...     print &apos;Found it!&apos;
+... 
+Found it!
+</code></pre><p>附录 B: islower, capitalize, swapcase, title, istitle, upper, isupper.</p>
+<hr>
+
+<p><strong>标题转换</strong></p>
+<p>和 lower 方法相关的是 title 方法（参见附录 B），它会将字符串转换为标题——也就是所有单词的首字母大写，而其他字母小写．但是它使用的单词划分方法可能会得到并不自然的结果：</p>
+<pre><code>&gt;&gt;&gt; &quot;that&apos;s all folks&quot;.title()
+&quot;That&apos;S All Folks&quot;
+</code></pre><p>再介绍另外一个 string 模块的 capwords 函数：</p>
+<pre><code>&gt;&gt;&gt; import string
+&gt;&gt;&gt; string.capwords(&quot;that&apos;s all, folks&quot;)
+&quot;That&apos;s All, Folks&quot;
+</code></pre><p>string.capwords(s[, sep]): 使用 split 函数分割字符串 s (以 sep 为分隔符），使用 capitalize 函数将分割得到的各单词首字母大写，并且使用 join 函数以 sep 为分隔符将各单词连接起来．</p>
+<p>当然，如果要得到正确首字母大写的标题（这要根据你的风格而定，可能要小写冠词、连词及 5 个字母以下的介词等），那么还是得自己把握．</p>
+<hr>
+
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h3><p><font color="red"><strong>replace</strong></font> 方法返回某字符串的所有匹配项均被替代之后得到字符串．</p>
+<pre><code>&gt;&gt;&gt; &apos;This is a test&apos;.replace(&apos;is&apos;, &apos;eez&apos;)
+&apos;Theez eez a test&apos;
+</code></pre><p>附录 B: expandtabs</p>
+<h3 id="split"><a href="#split" class="headerlink" title="split"></a>split</h3><p><font color="red"><strong>split</strong></font> 方法是一个非常重要的字符串方法，它是 join 的逆方法，用来将字符串分割成序列．</p>
+<pre><code>&gt;&gt;&gt; &apos;1+2+3+4+5&apos;.split(&apos;+&apos;)
+[&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos;]
+&gt;&gt;&gt; &apos;/usr/bin/env&apos;.split(&apos;/&apos;)
+[&apos;&apos;, &apos;usr&apos;, &apos;bin&apos;, &apos;env&apos;]
+&gt;&gt;&gt; &apos;Using the default&apos;.split()
+[&apos;Using&apos;, &apos;the&apos;, &apos;default&apos;]
+</code></pre><p>注意，如果不提供任何分隔符，程序会把所有空格作为分隔符（空格，制表，换行符）．</p>
+<p>附录 B: rsplit, splitlines.</p>
+<h3 id="strip"><a href="#strip" class="headerlink" title="strip"></a>strip</h3><p><font color="red"><strong>strip</strong></font> 方法返回去除两侧（不包括内部）空格的字符串：</p>
+<pre><code>&gt;&gt;&gt; &apos;     internal whitespace is kept     &apos;.strip()
+&apos;internal whitespace is kept&apos;
+&gt;&gt;&gt; 
+&gt;&gt;&gt; names = [&apos;gumby&apos;, &apos;smith&apos;, &apos;jones&apos;]
+&gt;&gt;&gt; name = &apos; gumby&apos;
+&gt;&gt;&gt; if name in names:
+...     print &apos;found it&apos;
+... 
+&gt;&gt;&gt; if name.strip() in names:
+...     print &apos;found it&apos;
+... 
+found it
+</code></pre><p>也可以指定需要去除的字符，将他们列为参数即可:</p>
+<pre><code>&gt;&gt;&gt; &apos;***** Spam * for * everyone!!! ***&apos;.strip(&apos;*!&apos;)
+&apos; Spam * for * everyone!!! &apos;
+&gt;&gt;&gt; &apos;***** Spam * for * everyone!!! ***&apos;.strip(&apos; *!&apos;)
+&apos;Spam * for * everyone&apos;
+</code></pre><p>这个方法只会去除两侧的字符，所以字符串中的星号没有被去掉．</p>
+<p>附录 B: lstrip, rstrip.</p>
+<h3 id="translate"><a href="#translate" class="headerlink" title="translate"></a>translate</h3><p><font color="red"><strong>translate</strong></font> 方法和 replace 方法一样，可以替换字符串中国的某些部分，但是 translate 方法只处理单个字符．它的优势在于可以同时进行多个替换，有时候比 replace 效率高得多．</p>
+<p>在使用 translate 转换之前，需要先完成一张<strong>转换表</strong>．转换表中是以某字符替换某字符的对应关系．因为这个表（事实上是字符串）有多达 256 个项目，我们可以使用 string 模块里面的 maketrans 函数就行．</p>
+<p>maketrans 函数接受两个参数：两个等长的字符串，表示第一个字符串中的每个字符都用第二个字符串中相同位置的字符替换．</p>
+<pre><code>&gt;&gt;&gt; from string import maketrans
+&gt;&gt;&gt; table = maketrans(&apos;cs&apos;, &apos;kz&apos;)
+# 转换表是包含替换 ASCII 字符集中256个字符的替换字母的字符串． 
+&gt;&gt;&gt; len(table)
+256
+&gt;&gt;&gt; table[97:123]
+&apos;abkdefghijklmnopqrztuvwxyz&apos;
+&gt;&gt;&gt; maketrans(&apos;&apos;, &apos;&apos;)[97:123]
+&apos;abcdefghijklmnopqrstuvwxyz&apos;
+&gt;&gt;&gt; 
+&gt;&gt;&gt; &apos;this is an incredible test&apos;.translate(table)
+&apos;thiz iz an inkredible tezt&apos;
+</code></pre><p>translate 的第二个参数是可选的，这个参数是用来制定需要删除的字符．例如，如果想要模拟一句语速超快的德国语，可以删除所有空格：</p>
+<pre><code>&gt;&gt;&gt; &apos;this is an incredible test&apos;.translate(table, &apos; &apos;)
+&apos;thizizaninkredibletezt&apos;
+</code></pre></span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/28/python-4/" rel="prev">Python Chapter 4 字典：当索引不好用时</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/25/html-1/" rel="next">HTML 基础教程</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/09/26/python-3/"
+                   data-title="Python Chapter 3 使用字符串" data-url="http://sujerry.com/2015/09/26/python-3/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/tempo.jpg" alt="Jerry Wang" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Jerry Wang</p>
+        </div>
+
+        <p class="site-description motion-element" itemprop="description">Every single day without dancing is one day we betrayed of life.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">categories</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sujerry" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1955496293" target="_blank">Weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.kennethreitz.org/" target="_blank">kennethreitz</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cyberciti.biz/" target="_blank">nixCraft</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cnblogs.com/peida/" target="_blank">Peida</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/sunboy_2050" target="_blank">Sunboy</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://macshuo.com/" target="_blank">MacTalk</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://qianduanblog.com/" target="_blank">QDBlog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://heroicyang.com/" target="_blank">Hero</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.skymoon.biz/" target="_blank">Skymoon</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.kuangbin.net/" target="_blank">KuangBin</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/lttree" target="_blank">LTtree</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://yife.im/" target="_blank">FlyingBull</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本字符串操作"><span class="nav-number">1.</span> <span class="nav-text">基本字符串操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串格式化：精简版"><span class="nav-number">2.</span> <span class="nav-text">字符串格式化：精简版</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板字符串"><span class="nav-number">2.1.</span> <span class="nav-text">模板字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串格式化：完整版"><span class="nav-number">3.</span> <span class="nav-text">字符串格式化：完整版</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单转换"><span class="nav-number">3.1.</span> <span class="nav-text">简单转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符宽度和精度"><span class="nav-number">3.2.</span> <span class="nav-text">字符宽度和精度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号、对齐和-0-填充"><span class="nav-number">3.3.</span> <span class="nav-text">符号、对齐和 0 填充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串方法"><span class="nav-number">4.</span> <span class="nav-text">字符串方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#find"><span class="nav-number">4.1.</span> <span class="nav-text">find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#join"><span class="nav-number">4.2.</span> <span class="nav-text">join</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lower"><span class="nav-number">4.3.</span> <span class="nav-text">lower</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#replace"><span class="nav-number">4.4.</span> <span class="nav-text">replace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#split"><span class="nav-number">4.5.</span> <span class="nav-text">split</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strip"><span class="nav-number">4.6.</span> <span class="nav-text">strip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#translate"><span class="nav-number">4.7.</span> <span class="nav-text">translate</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" align="center">
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry Wang</span>
+</div>
+
+<!--jerrywang
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+-->
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sujerry"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

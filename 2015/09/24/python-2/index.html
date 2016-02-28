@@ -1,0 +1,1119 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <meta name="google-site-verification" content="VvyjvVXcJQa0QklHipu6pwm2PJGnnchIqX7s5JbbT_0" />
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="Every single day without dancing is one day we betrayed of life." />
+
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/bitbug_favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="序列概览Python包含6种内建的序列，列表，元组，字符串，Unicode字符串，buffer对象，xrange对象．
+列表可以修改，元组不可以修改．在几乎所有的情况下列表都可以替代元组，但是也有例外，比如：使用元组作为字典的键．因为键不可修改，所以就不能使用列表．
+在需要操作一组数值的时候，序列很好用．同时，序列也可以包含其他的序列．
+&amp;gt;&amp;gt;&amp;gt; edward = [&amp;apos;E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Chapter 2 列表和元组">
+<meta property="og:url" content="http://sujerry.com/2015/09/24/python-2/index.html">
+<meta property="og:site_name" content="SuJerry's Blog">
+<meta property="og:description" content="序列概览Python包含6种内建的序列，列表，元组，字符串，Unicode字符串，buffer对象，xrange对象．
+列表可以修改，元组不可以修改．在几乎所有的情况下列表都可以替代元组，但是也有例外，比如：使用元组作为字典的键．因为键不可修改，所以就不能使用列表．
+在需要操作一组数值的时候，序列很好用．同时，序列也可以包含其他的序列．
+&amp;gt;&amp;gt;&amp;gt; edward = [&amp;apos;E">
+<meta property="og:updated_time" content="2015-09-25T08:54:18.367Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python Chapter 2 列表和元组">
+<meta name="twitter:description" content="序列概览Python包含6种内建的序列，列表，元组，字符串，Unicode字符串，buffer对象，xrange对象．
+列表可以修改，元组不可以修改．在几乎所有的情况下列表都可以替代元组，但是也有例外，比如：使用元组作为字典的键．因为键不可修改，所以就不能使用列表．
+在需要操作一组数值的时候，序列很好用．同时，序列也可以包含其他的序列．
+&amp;gt;&amp;gt;&amp;gt; edward = [&amp;apos;E">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Python Chapter 2 列表和元组 | SuJerry's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8828472b36a6d76850b288afe56fdf20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">SuJerry's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            Tags
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Python Chapter 2 列表和元组
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-09-24T15:02:33+08:00" content="2015-09-24">
+            2015-09-24
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Python/" itemprop="url" rel="index">
+                  <span itemprop="name">Python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/09/24/python-2/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/24/python-2/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="序列概览"><a href="#序列概览" class="headerlink" title="序列概览"></a>序列概览</h2><p>Python包含6种内建的序列，<em>列表</em>，<em>元组</em>，字符串，Unicode字符串，buffer对象，xrange对象．</p>
+<p>列表可以修改，元组不可以修改．在几乎所有的情况下列表都可以替代元组，但是也有例外，比如：使用元组作为字典的键．因为键不可修改，所以就不能使用列表．</p>
+<p>在需要操作一组数值的时候，序列很好用．同时，序列也可以包含其他的序列．</p>
+<pre><code>&gt;&gt;&gt; edward = [&apos;Edward Gumby&apos;, 42]
+&gt;&gt;&gt; john = [&apos;John Smith&apos;, 50]
+&gt;&gt;&gt; database = [edward, john]
+&gt;&gt;&gt; database
+[[&apos;Edward Gumby&apos;, 42], [&apos;John Smith&apos;, 50]]
+&gt;&gt;&gt; database[0][0]
+&apos;Edward Gumby&apos;
+</code></pre><p><font color="red">注意：</font>Python中还有一种名为容器的数据结构．容器基本上是包含其他对象的任意对象．序列（例如列表和元组）和映射（例如字典）是两类主要的容器．序列中的每个元素都有自己的编号，而映射中的每个元素则有一个名字（也称为键）．至于既不是序列也不是映射的容器类型，集合(set)就是一个例子．</p>
+<h2 id="通用序列操作"><a href="#通用序列操作" class="headerlink" title="通用序列操作"></a>通用序列操作</h2><p>所有序列类型都可以进行的操作：索引，分片，加，乘，以及检查某个元素是否属于序列的成员（成员资格）．除此外，Python还有：计算序列长度．找出最大元素和最小元素的内建函数．</p>
+<p><font color="red">注意：</font>迭代．依次对序列中的每个元素重复执行某些操作．</p>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>索引编号从0开始递增（0,1,2,3,…）．如果使用负数索引时，从右边开始，也就是最后一个元素的索引为-1，从右向左依次递减（…-3,-2,-1）．</p>
+<pre><code>&gt;&gt;&gt; str = &apos;hello&apos;
+&gt;&gt;&gt; str[0]
+&apos;h&apos;
+&gt;&gt;&gt; str[-5]
+&apos;h&apos;
+</code></pre><p>字符串的字面值（就此而言，其他序列字面量亦可）能够直接使用索引，而不需要一个变量引用它们．两种做法的效果是一样的：</p>
+<pre><code>&gt;&gt;&gt; &apos;hello&apos;[0]
+&apos;h&apos;
+&gt;&gt;&gt; &apos;hello&apos;[-5]
+&apos;h&apos;
+</code></pre><p>如果一个函数调用返回一个序列，那么可以直接对返回结果进行索引操作．例如：</p>
+<pre><code>&gt;&gt;&gt; f = raw_input(&apos;Year: &apos;)
+Year: 1234
+&gt;&gt;&gt; f = raw_input(&apos;Year: &apos;)[3]
+Year: 1234
+&gt;&gt;&gt; f
+&apos;4&apos;
+</code></pre><h3 id="分片"><a href="#分片" class="headerlink" title="分片"></a>分片</h3><p>分片的原则是＂<font color="red">前闭后开</font>＂</p>
+<pre><code>&gt;&gt;&gt; numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+&gt;&gt;&gt; numbers[3:6]
+[4, 5, 6]
+&gt;&gt;&gt; numbers[0:1]
+[1]
+&gt;&gt;&gt; numbers[-3:-1]
+[8, 9]
+&gt;&gt;&gt; numbers[-3:0]
+[]
+&gt;&gt;&gt; numbers[-3:]
+[8, 9, 10]
+&gt;&gt;&gt; numbers[:3]
+[1, 2, 3]
+&gt;&gt;&gt; numbers[:]
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</code></pre><p>也可以在分片中加入<font color="blue">步长</font>：</p>
+<pre><code>&gt;&gt;&gt; numbers[0:10:1]
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+&gt;&gt;&gt; numbers[0:10:2]
+[1, 3, 5, 7, 9]
+&gt;&gt;&gt; numbers[3:6:3]
+[4]
+&gt;&gt;&gt; numbers[8:3:-1]
+[9, 8, 7, 6, 5]
+&gt;&gt;&gt; numbers[10:0:-2]
+[10, 8, 6, 4, 2]
+&gt;&gt;&gt; numbers[0:10:-2]
+[]
+&gt;&gt;&gt; numbers[::-2]
+[10, 8, 6, 4, 2]
+&gt;&gt;&gt; numbers[5::-2]
+[6, 4, 2]
+&gt;&gt;&gt; numbers[:5:-2]
+[10, 8]
+</code></pre><p>步长不能为0，但可以是负数，即从右到左提取元素．</p>
+<p>对于一个正数步长，Python会从序列的头部开始向右提取元素，直到最后一个元素；而对于负数步长，则是从序列的尾部开始向左提取元素，直到第一个元素．</p>
+<h3 id="序列相加"><a href="#序列相加" class="headerlink" title="序列相加"></a>序列相加</h3><p>通过使用＇＋＇可以进行序列的连接操作：</p>
+<pre><code>&gt;&gt;&gt; [1, 2, 3] + [4, 5, 6]
+[1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt; &apos;hello &apos; + &apos;world&apos;
+&apos;hello world&apos;
+&gt;&gt;&gt; [1, 2, 3] + &apos;hello&apos;
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: can only concatenate list (not &quot;str&quot;) to list
+</code></pre><p>注意：两种相同类型的序列才可以进行连接操作</p>
+<h3 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h3><p>用数字ｔ乘以一个序列会生成新的序列，在新的序列中，原来的序列将被重复ｔ次．</p>
+<pre><code>&gt;&gt;&gt; &apos;python&apos; * 5
+&apos;pythonpythonpythonpythonpython&apos;
+&gt;&gt;&gt; [1, 2, 3] * 4
+[1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]
+</code></pre><p>None是Python的一个内建值，表示＂这里什么也没有＂．</p>
+<p>初始化一个列表：</p>
+<pre><code>&gt;&gt;&gt; s = [None] * 10
+&gt;&gt;&gt; s
+[None, None, None, None, None, None, None, None, None, None]
+</code></pre><h3 id="成员资格"><a href="#成员资格" class="headerlink" title="成员资格"></a>成员资格</h3><p>可以使用＇in＇运算符检查一个值是否在序列中，返回True or False．</p>
+<pre><code>&gt;&gt;&gt; str = &apos;rw&apos;
+&gt;&gt;&gt; &apos;w&apos; in str
+True
+&gt;&gt;&gt; &apos;s&apos; in str
+False
+&gt;&gt;&gt; str in str
+True
+&gt;&gt;&gt; &apos;wr&apos; in str
+False
+&gt;&gt;&gt; &apos;rw&apos; in str
+True
+&gt;&gt;&gt; user = [&apos;mm&apos;, &apos;gg&apos;]
+&gt;&gt;&gt; raw_input(&apos;Enter your name: &apos;) in user
+Enter your name: mm
+True
+&gt;&gt;&gt; str = &apos;ddd get some money&apos;
+&gt;&gt;&gt; &apos;ddd&apos; in str
+True
+&gt;&gt;&gt; database = [ [&apos;albert&apos;, 1], [&apos;wang&apos;, 2] ]
+&gt;&gt;&gt; [&apos;albert&apos;, 1] in database
+True
+</code></pre><h3 id="长度，最小值和最大值"><a href="#长度，最小值和最大值" class="headerlink" title="长度，最小值和最大值"></a>长度，最小值和最大值</h3><p><font color="red">len, min, max</font> 可以返回序列元素的个数，最小和最大元素．</p>
+<pre><code>&gt;&gt;&gt; num = [100, 23, 342]
+&gt;&gt;&gt; len(num)
+    3
+    &gt;&gt;&gt; max(num)
+    342
+    &gt;&gt;&gt; min(num)
+    23
+    &gt;&gt;&gt; str = [&apos;wang&apos;, &apos;yan&apos;, &apos;ttt&apos;]
+    &gt;&gt;&gt; max(str)
+    &apos;yan&apos;
+    &gt;&gt;&gt; min(str)
+    &apos;ttt&apos;
+    &gt;&gt;&gt; max(1, 2, 3, 4)
+    4
+    &gt;&gt;&gt; min(1, 2, 3, 4)
+    1
+</code></pre><h3 id="列表：Python-的＂苦力＂"><a href="#列表：Python-的＂苦力＂" class="headerlink" title="列表：Python 的＂苦力＂"></a>列表：Python 的＂苦力＂</h3><p>列表不同于字符串和元组的地方是：列表是可变的</p>
+<h3 id="list-函数"><a href="#list-函数" class="headerlink" title="list 函数"></a>list 函数</h3><p>可以使用 list 函数创建列表．list 函数适用于所有类型的序列．</p>
+<pre><code>&gt;&gt;&gt; list(&apos;wang&apos;)
+[&apos;w&apos;, &apos;a&apos;, &apos;n&apos;, &apos;g&apos;]
+&gt;&gt;&gt; &apos;&apos;.join([&apos;w&apos;,&apos;y&apos;])
+&apos;wy&apos;
+</code></pre><p>使用 join 可以将字符组成的列表转换成字符串．</p>
+<h3 id="基本的列表操作"><a href="#基本的列表操作" class="headerlink" title="基本的列表操作"></a>基本的列表操作</h3><p>改变列表的方法：元素赋值，元素删除，分片赋值以及列表方法（并不是所有的列表方法都真正地改变列表）．</p>
+<p><font color="blue">元素赋值</font>：</p>
+<pre><code>&gt;&gt;&gt; x = [1, 2, 3]
+&gt;&gt;&gt; x
+[1, 2, 3]
+&gt;&gt;&gt; x[0] = 10
+&gt;&gt;&gt; x
+[10, 2, 3]
+&gt;&gt;&gt; x[4] = 1
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+IndexError: list assignment index out of range
+</code></pre><p>不能为一个元素不存在的位置赋值．</p>
+<p><font color="blue">删除元素</font>，使用 del 语句来实现：</p>
+<pre><code>&gt;&gt;&gt; x = [1, 2, 3]
+&gt;&gt;&gt; x
+[1, 2, 3]
+&gt;&gt;&gt; del x[0]
+&gt;&gt;&gt; x
+[2, 3]
+&gt;&gt;&gt; del x[10]
+Traceback (most recent call last):
+　File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+IndexError: list assignment index out of range
+</code></pre><p><font color="blue">分片赋值</font>：</p>
+<pre><code>&gt;&gt;&gt; names = list(&apos;perl&apos;)
+&gt;&gt;&gt; names
+[&apos;p&apos;, &apos;e&apos;, &apos;r&apos;, &apos;l&apos;]
+&gt;&gt;&gt; names[2:] = list(&apos;ar&apos;)
+&gt;&gt;&gt; names
+[&apos;p&apos;, &apos;e&apos;, &apos;a&apos;, &apos;r&apos;]
+&gt;&gt;&gt; 
+&gt;&gt;&gt; names = list(&apos;perl&apos;)
+&gt;&gt;&gt; names
+[&apos;p&apos;, &apos;e&apos;, &apos;r&apos;, &apos;l&apos;]
+&gt;&gt;&gt; names[1:] = list(&apos;ython i love you&apos;)
+&gt;&gt;&gt; names
+[&apos;p&apos;, &apos;y&apos;, &apos;t&apos;, &apos;h&apos;, &apos;o&apos;, &apos;n&apos;, &apos; &apos;, &apos;i&apos;, &apos; &apos;, &apos;l&apos;, &apos;o&apos;, &apos;v&apos;, &apos;e&apos;, &apos; &apos;, &apos;y&apos;, &apos;o&apos;, &apos;u&apos;]
+</code></pre><p>分片赋值语句可以在不需要替换任何原有元素的情况下<font color="red">插入</font>新的元素．也可以通过分片赋值来删除元素．</p>
+<pre><code>&gt;&gt;&gt; nums = [1, 5]
+&gt;&gt;&gt; nums[1:1] = [2, 3, 4]
+&gt;&gt;&gt; nums
+[1, 2, 3, 4, 5]
+&gt;&gt;&gt; 
+&gt;&gt;&gt; nums[1:4] = []
+&gt;&gt;&gt; nums
+[1, 5]
+</code></pre><p>上面例子的结果和 del nums[1:4] 的一样．也可以使用1以外的步长，甚至是负数进行分片．</p>
+<h3 id="列表方法"><a href="#列表方法" class="headerlink" title="列表方法"></a>列表方法</h3><p><font color="red"><strong>append</strong></font> 方法用于在列表的末尾追加新的对象：</p>
+<pre><code>&gt;&gt;&gt; lst = [1, 2, 3]
+&gt;&gt;&gt; lst
+[1, 2, 3]
+&gt;&gt;&gt; lst.append(2)
+&gt;&gt;&gt; lst
+[1, 2, 3, 2]
+</code></pre><p><font color="red"><strong>count</strong></font> 方法统计某个元素在列表中出现的次数：</p>
+<pre><code>&gt;&gt;&gt; [&apos;to&apos;, &apos;be&apos;, &apos;or&apos;, &apos;not&apos;, &apos;to&apos;, &apos;be&apos;].count(&apos;to&apos;)
+2
+&gt;&gt;&gt; x = [ [1, 2], 1, 1, [2, 1, [1, 2]] ]
+&gt;&gt;&gt; x.count(1)
+2
+&gt;&gt;&gt; x.count([1, 2])
+1
+</code></pre><p><font color="red"><strong>extend</strong></font> 方法可以在列表的末尾一次性追加另一个序列中的多个值．换句话说，就是可以用新的序列扩展原有的列表：</p>
+<pre><code>&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = [4, 5, 6]
+&gt;&gt;&gt; a.extend(b)
+&gt;&gt;&gt; a
+[1, 2, 3, 4, 5, 6]
+</code></pre><p>如果使用 a = a + b 的话，会降低效率，并且也不是一个原位置操作．</p>
+<p>我们也可以使用分片来实现相同的效果：</p>
+<pre><code>&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = [4, 5, 6]
+&gt;&gt;&gt; a[len(a):] = b
+&gt;&gt;&gt; a
+[1, 2, 3, 4, 5, 6]
+</code></pre><p><font color="red"><strong>index</strong></font> 方法用于从列表中找出某个值第一个匹配项的索引位置：</p>
+<pre><code>&gt;&gt;&gt; knights = [&apos;we&apos;, &apos;are&apos;, &apos;the&apos;, &apos;knights&apos;, &apos;who&apos;, &apos;say&apos;, &apos;ni&apos;]
+&gt;&gt;&gt; knights.index(&apos;the&apos;)
+2
+&gt;&gt;&gt; knights.index(&apos;nonoo&apos;)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+ValueError: &apos;nonoo&apos; is not in list
+</code></pre><p>当搜索单词＇nonoo＇时，会引发一个异常，因为这个单词没有被找到．</p>
+<p><font color="red"><strong>insert</strong></font> 方法用于将对象插入到列表中：</p>
+<pre><code>&gt;&gt;&gt; nums = [1, 2, 3, 4, 5]
+&gt;&gt;&gt; nums.insert(3, &apos;four&apos;)
+&gt;&gt;&gt; nums
+[1, 2, 3, &apos;four&apos;, 4, 5]
+</code></pre><p>与extend方法一样，insert 方法的操作也可以用分片赋值来实现．</p>
+<pre><code>&gt;&gt;&gt; nums = [1, 2, 3, 4, 5]
+&gt;&gt;&gt; nums[3:3] = [&apos;four&apos;]
+&gt;&gt;&gt; nums
+[1, 2, 3, &apos;four&apos;, 4, 5]
+</code></pre><p><font color="red"><strong>pop</strong></font> 方法会移除列表中的一个元素（默认是最后一个），并且返回该元素的值：</p>
+<pre><code>&gt;&gt;&gt; x = [1, 2, 3]
+&gt;&gt;&gt; x.pop()
+3
+&gt;&gt;&gt; x
+[1, 2]
+&gt;&gt;&gt; x.pop(0)
+1
+&gt;&gt;&gt; x
+[2]
+&gt;&gt;&gt; x.pop()
+2
+&gt;&gt;&gt; x
+[]
+&gt;&gt;&gt; x.pop()
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+IndexError: pop from empty list
+</code></pre><p>注意：pop 方法是唯一一个既能修改列表又返回元素值（除了 None ）的方法．</p>
+<p>使用 pop 和 append 方法可以模拟栈的操作．</p>
+<p><font color="red"><strong>remove</strong></font> 方法用于移除列表中某个值的第一个匹配项：</p>
+<pre><code>&gt;&gt;&gt; x = [&apos;to&apos;, &apos;be&apos;, &apos;or&apos;, &apos;not&apos;, &apos;to&apos;, &apos;be&apos;]
+&gt;&gt;&gt; x.remove(&apos;to&apos;)
+&gt;&gt;&gt; x
+[&apos;be&apos;, &apos;or&apos;, &apos;not&apos;, &apos;to&apos;, &apos;be&apos;]
+&gt;&gt;&gt; x.remove(&apos;bee&apos;)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+ValueError: list.remove(x): x not in list
+</code></pre><p>remove 是一个没有返回值的原位置改变方法．它修改了列表却没有返回值，这与 pop 方法相反．</p>
+<p><font color="red"><strong>reverse</strong></font> 方法将列表中的元素反向存放：</p>
+<pre><code>&gt;&gt;&gt; x = [1, 2, 3]
+&gt;&gt;&gt; x
+[1, 2, 3]
+&gt;&gt;&gt; x.reverse()
+&gt;&gt;&gt; x
+[3, 2, 1]
+</code></pre><p><hr><br><strong>提示：</strong>如果需要对一个序列进行反向迭代，那么可以使用 reversed 函数．这个函数并不返回一个列表，而是返回一个迭代器（iterator）对象．尽管如此，使用 list 函数把返回的对象转换成列表也是可行的：</p>
+<pre><code>&gt;&gt;&gt; x = [1, 2, 3]
+&gt;&gt;&gt; list(reversed(x))
+[3, 2, 1]
+</code></pre><hr>
+
+<p><font color="red"><strong>sort</strong></font> 方法在原位置（改变原来的列表）对列表进行排序．</p>
+<pre><code>&gt;&gt;&gt; x = [2, 3, 1, 9, 5]
+&gt;&gt;&gt; x.sort()
+&gt;&gt;&gt; x
+[1, 2, 3, 5, 9]
+&gt;&gt;&gt; print x.sort()
+None
+
+&gt;&gt;&gt; x = [4, 6, 2, 1, 7, 9]
+&gt;&gt;&gt; y = x[:]
+&gt;&gt;&gt; y
+[4, 6, 2, 1, 7, 9]
+&gt;&gt;&gt; y.sort()
+&gt;&gt;&gt; y
+[1, 2, 4, 6, 7, 9]
+&gt;&gt;&gt; x
+[4, 6, 2, 1, 7, 9]
+</code></pre><p>再次调用 x[:] 得到的是包含了 x 所有元素的分片，这是一种很有效率的复制整个列表的方法．只是简单地把 x 赋值 y 是没用的，因为这样就让 x 和 y 都指向同一个列表了．</p>
+<pre><code>&gt;&gt;&gt; x = [2, 1, 5, 3, 7]
+&gt;&gt;&gt; y = x
+&gt;&gt;&gt; y.sort()
+&gt;&gt;&gt; y
+[1, 2, 3, 5, 7]
+&gt;&gt;&gt; x
+[1, 2, 3, 5, 7]
+</code></pre><p>另一种获取已排序的列表副本的方法是，使用 sorted 函数：</p>
+<pre><code>&gt;&gt;&gt; x = [4, 6, 2, 1, 7, 9]
+&gt;&gt;&gt; y = sorted(x)
+&gt;&gt;&gt; x
+[4, 6, 2, 1, 7, 9]
+&gt;&gt;&gt; y
+[1, 2, 4, 6, 7, 9]
+</code></pre><p>这个函数实际上可以用于任何一个序列，却总是返回一个列表：</p>
+<pre><code>&gt;&gt;&gt; sorted(&apos;python&apos;)
+[&apos;h&apos;, &apos;n&apos;, &apos;o&apos;, &apos;p&apos;, &apos;t&apos;, &apos;y&apos;]
+</code></pre><p><font color="red">高级排序</font> 如果希望元素能按照特定的方式进行排序，可以通过使用 compare(x, y) 的形式自定义比较函数．compare(x,y) 函数会在 x<y 时返回负数，在="" x="">y 时返回正数，如果 x=y 则返回0（根据你的定义）．定义好该函数之后，就可以提供给 sort 方法作为参数了．内建函数 cmp 提供了比较函数的默认实现方式：</y></p>
+<pre><code>&gt;&gt;&gt; def cmpare(x, y):
+...     if x &gt; y:
+...             return -1
+...     elif x &lt; y:
+...             return 1
+...     else:
+...             return 0
+... 
+&gt;&gt;&gt; numbers = [5, 2, 9, 7]
+&gt;&gt;&gt; numbers.sort(cmpare)
+&gt;&gt;&gt; numbers
+[9, 7, 5, 2]
+&gt;&gt;&gt; numbers.sort(cmp)
+&gt;&gt;&gt; numbers
+[2, 5, 7, 9]
+</code></pre><p>sort 方法有另外两个可选的参数：key 和 reverse．参数 key 与参数 cmp 类似，必提供一个在排序过程中使用的函数．然而，该函数并不是直接用来确定对象的大小，而是为每个元素创建一个<font color="blue">键</font>，然后所有元素根据键来排序．因此，如果要跟就元素的长度进行排序，那么可以使用 len 作为键函数：</p>
+<pre><code>&gt;&gt;&gt; x = [&apos;aardvark&apos;, &apos;abalone&apos;, &apos;acme&apos;, &apos;add&apos;, &apos;aerate&apos;]
+&gt;&gt;&gt; x.sort(key=len)
+&gt;&gt;&gt; x
+[&apos;add&apos;, &apos;acme&apos;, &apos;aerate&apos;, &apos;abalone&apos;, &apos;aardvark&apos;]
+</code></pre><p>另一个关键字 reverse 是简单的布尔值（True或者是False），用来指明列表是否要进行反向排序．</p>
+<pre><code>&gt;&gt;&gt; x = [4, 5, 2, 1, 7, 9]
+&gt;&gt;&gt; x.sort(reverse=True)
+&gt;&gt;&gt; x
+[9, 7, 5, 4, 2, 1]
+</code></pre><p>cmp, key, reverse 参数都可以用于 sorted 函数．在多数情况下，为 cmp 或 key 提供自定义函数是非常有用的．</p>
+<p><hr><br><strong>提示：</strong>如果想了解更多有关排序的内容，可以查看 Andrew Dalke 的＂Sortint Mini-HOWTO＂，链接是：<a href="https://wiki.python.org/moin/HowTo/Sorting" target="_blank" rel="external">https://wiki.python.org/moin/HowTo/Sorting</a>.</p>
+<hr>
+
+<h2 id="元组：不可变序列"><a href="#元组：不可变序列" class="headerlink" title="元组：不可变序列"></a>元组：不可变序列</h2><p>元组和列表一样，也是一种序列．唯一的不同是，元组不能修改（并且没有像列表一样的方法）．创建元组的方法很简单：如果你用逗号分隔了一些值，那么你就自动创建了元组．</p>
+<pre><code>&gt;&gt;&gt; 1, 2, 3
+(1, 2, 3)
+&gt;&gt;&gt; &apos;q&apos;, &apos;w&apos;, &apos;e&apos;
+(&apos;q&apos;, &apos;w&apos;, &apos;e&apos;)
+&gt;&gt;&gt; (1, 2, 3)
+(1, 2, 3)
+&gt;&gt;&gt; ()
+()
+</code></pre><p>空元组可以用没有包含内容的两个圆括号来表示．只包含一个值的元组需要加逗号：</p>
+<pre><code>&gt;&gt;&gt; 42
+42
+&gt;&gt;&gt; 42.
+42.0
+&gt;&gt;&gt; 42,
+(42,)
+&gt;&gt;&gt; (42,)
+(42,)
+&gt;&gt;&gt; (42)
+42
+
+&gt;&gt;&gt; 3 * (40 + 2)
+126
+&gt;&gt;&gt; 3 * (40 + 2 ,)
+(42, 42, 42)
+</code></pre><h3 id="tuple-函数"><a href="#tuple-函数" class="headerlink" title="tuple 函数"></a>tuple 函数</h3><p>tuple 函数的功能与 list 函数基本上是一样的：以一个序列作为参数并把它转换为元组．如果参数就是元组，那么该参数就会被原样返回：</p>
+<pre><code>&gt;&gt;&gt; tuple([1, 2, 3])
+(1, 2, 3)
+&gt;&gt;&gt; tuple(&apos;abc&apos;)
+(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;)
+&gt;&gt;&gt; tuple((1, 2, 3))
+(1, 2, 3)
+</code></pre><h3 id="基本元组操作"><a href="#基本元组操作" class="headerlink" title="基本元组操作"></a>基本元组操作</h3><p>元组其实并不复杂——除了创建和访问元组元素之外，也没有太多其他操作，可以参考其他类型的序列来实现：</p>
+<pre><code>&gt;&gt;&gt; x = 1, 2, 3
+&gt;&gt;&gt; x[1]
+2
+&gt;&gt;&gt; x[0:2]
+(1, 2)
+</code></pre><p>元组的分片还是元组．</p>
+<h3 id="元组存在的意义"><a href="#元组存在的意义" class="headerlink" title="元组存在的意义"></a>元组存在的意义</h3><p><hr></p>
+<ul>
+<li>元组可以在映射（和集合的成员）中当作键使用——而列表则不行．</li>
+<li>元组作为很多内建函数和方法的返回值存在，也就是说你必须对元组进行处理．只要不尝试修改元组，那么，＂处理＂元组在绝大多数情况下就是把它们当作列表来进行操作（除非需要使用一些元组没有的方法，例如 index 和 count)．<hr>
+</li>
+</ul>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/25/html-1/" rel="prev">HTML 基础教程</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/24/python-1/" rel="next">Python Chapter 1 基础知识</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/09/24/python-2/"
+                   data-title="Python Chapter 2 列表和元组" data-url="http://sujerry.com/2015/09/24/python-2/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/tempo.jpg" alt="Jerry Wang" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Jerry Wang</p>
+        </div>
+
+        <p class="site-description motion-element" itemprop="description">Every single day without dancing is one day we betrayed of life.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">categories</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sujerry" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1955496293" target="_blank">Weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.kennethreitz.org/" target="_blank">kennethreitz</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cyberciti.biz/" target="_blank">nixCraft</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cnblogs.com/peida/" target="_blank">Peida</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/sunboy_2050" target="_blank">Sunboy</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://macshuo.com/" target="_blank">MacTalk</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://qianduanblog.com/" target="_blank">QDBlog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://heroicyang.com/" target="_blank">Hero</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.skymoon.biz/" target="_blank">Skymoon</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.kuangbin.net/" target="_blank">KuangBin</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/lttree" target="_blank">LTtree</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://yife.im/" target="_blank">FlyingBull</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序列概览"><span class="nav-number">1.</span> <span class="nav-text">序列概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用序列操作"><span class="nav-number">2.</span> <span class="nav-text">通用序列操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#索引"><span class="nav-number">2.1.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分片"><span class="nav-number">2.2.</span> <span class="nav-text">分片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列相加"><span class="nav-number">2.3.</span> <span class="nav-text">序列相加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乘法"><span class="nav-number">2.4.</span> <span class="nav-text">乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员资格"><span class="nav-number">2.5.</span> <span class="nav-text">成员资格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#长度，最小值和最大值"><span class="nav-number">2.6.</span> <span class="nav-text">长度，最小值和最大值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表：Python-的＂苦力＂"><span class="nav-number">2.7.</span> <span class="nav-text">列表：Python 的＂苦力＂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list-函数"><span class="nav-number">2.8.</span> <span class="nav-text">list 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本的列表操作"><span class="nav-number">2.9.</span> <span class="nav-text">基本的列表操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表方法"><span class="nav-number">2.10.</span> <span class="nav-text">列表方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组：不可变序列"><span class="nav-number">3.</span> <span class="nav-text">元组：不可变序列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tuple-函数"><span class="nav-number">3.1.</span> <span class="nav-text">tuple 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本元组操作"><span class="nav-number">3.2.</span> <span class="nav-text">基本元组操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元组存在的意义"><span class="nav-number">3.3.</span> <span class="nav-text">元组存在的意义</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" align="center">
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry Wang</span>
+</div>
+
+<!--jerrywang
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+-->
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sujerry"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

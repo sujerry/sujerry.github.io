@@ -1,0 +1,961 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <meta name="google-site-verification" content="VvyjvVXcJQa0QklHipu6pwm2PJGnnchIqX7s5JbbT_0" />
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="Every single day without dancing is one day we betrayed of life." />
+
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/bitbug_favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="本章中，你将学到一种通过名字引用值的数据结构．这种结构类型称为映射(mapping)．字典是 Python 中唯一内建的映射类型．字典中的值并没有特殊的顺序，但是都存储在一个特定的键里．键可以是数字、字符串甚至是元组．
+字典的使用查找某个特定的词语（键），从而找到它的定义（值）．
+创建和使用字典字典通过下面的方式创建：
+&amp;gt;&amp;gt;&amp;gt; phonebook = {&amp;apos;Alice&amp;a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Chapter 4 字典：当索引不好用时">
+<meta property="og:url" content="http://sujerry.com/2015/09/28/python-4/index.html">
+<meta property="og:site_name" content="SuJerry's Blog">
+<meta property="og:description" content="本章中，你将学到一种通过名字引用值的数据结构．这种结构类型称为映射(mapping)．字典是 Python 中唯一内建的映射类型．字典中的值并没有特殊的顺序，但是都存储在一个特定的键里．键可以是数字、字符串甚至是元组．
+字典的使用查找某个特定的词语（键），从而找到它的定义（值）．
+创建和使用字典字典通过下面的方式创建：
+&amp;gt;&amp;gt;&amp;gt; phonebook = {&amp;apos;Alice&amp;a">
+<meta property="og:updated_time" content="2015-09-28T08:01:22.692Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python Chapter 4 字典：当索引不好用时">
+<meta name="twitter:description" content="本章中，你将学到一种通过名字引用值的数据结构．这种结构类型称为映射(mapping)．字典是 Python 中唯一内建的映射类型．字典中的值并没有特殊的顺序，但是都存储在一个特定的键里．键可以是数字、字符串甚至是元组．
+字典的使用查找某个特定的词语（键），从而找到它的定义（值）．
+创建和使用字典字典通过下面的方式创建：
+&amp;gt;&amp;gt;&amp;gt; phonebook = {&amp;apos;Alice&amp;a">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Python Chapter 4 字典：当索引不好用时 | SuJerry's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8828472b36a6d76850b288afe56fdf20";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">SuJerry's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            Tags
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Python Chapter 4 字典：当索引不好用时
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-09-28T09:52:24+08:00" content="2015-09-28">
+            2015-09-28
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Python/" itemprop="url" rel="index">
+                  <span itemprop="name">Python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/09/28/python-4/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/28/python-4/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>本章中，你将学到一种通过名字引用值的数据结构．这种结构类型称为<strong>映射(mapping)</strong>．字典是 Python 中唯一内建的映射类型．字典中的值并没有特殊的顺序，但是都存储在一个特定的键里．键可以是数字、字符串甚至是元组．</p>
+<h2 id="字典的使用"><a href="#字典的使用" class="headerlink" title="字典的使用"></a>字典的使用</h2><p>查找某个特定的词语（键），从而找到它的定义（值）．</p>
+<h2 id="创建和使用字典"><a href="#创建和使用字典" class="headerlink" title="创建和使用字典"></a>创建和使用字典</h2><p>字典通过下面的方式创建：</p>
+<pre><code>&gt;&gt;&gt; phonebook = {&apos;Alice&apos;: &apos;2134&apos;, &apos;Beth&apos;: &apos;9102&apos;, &apos;Cecil&apos;: &apos;3258&apos;}
+&gt;&gt;&gt; phonebook[&apos;Beth&apos;]
+&apos;9102&apos;
+</code></pre><p>字典由多个键及与其对应的值构成的对组成（我们也把键/值对称为项）．每个键和它的值之间用冒号（:）隔开，项之间用逗号（,）隔开，而整个字典是由一对大括号括起来．空字典（不包括任何项）由两个大括号组成，像这样：{}．</p>
+<p><strong>注意：</strong>字典中的键是唯一的（其他类型的映射也是如此），而值并不唯一．</p>
+<h3 id="dict-函数"><a href="#dict-函数" class="headerlink" title="dict 函数"></a>dict 函数</h3><p>dict 函数根本不是真正的函数．它是个类型，就像 list, tuple 和 str 一样．</p>
+<p>可以使用 dict 函数，通过其他映射（比如其他字典）或者（键，值）这样的序列对建立字典．</p>
+<pre><code>&gt;&gt;&gt; items = [(&apos;name&apos;, &apos;Gumby&apos;), (&apos;age&apos;, 42)]
+&gt;&gt;&gt; d = dict(items)
+&gt;&gt;&gt; d
+{&apos;age&apos;: 42, &apos;name&apos;: &apos;Gumby&apos;}
+&gt;&gt;&gt; d[&apos;name&apos;]
+&apos;Gumby&apos;
+</code></pre><p>dict 函数也可以通过关键字参数来创建字典，如下例所示：</p>
+<pre><code>&gt;&gt;&gt; d = dict(name=&apos;Gumby&apos;, age=42)
+&gt;&gt;&gt; d
+{&apos;age&apos;: 42, &apos;name&apos;: &apos;Gumby&apos;}
+</code></pre><p>这可能是 dict 函数最有用的功能了，但是还能以映射作为 dict 函数的参数，以建立其项与映射相同的字典（如果不带任何参数，则 dict 函数返回一个新的空字典，就像 list, tuple 以及 str 等函数一样）．如果另一个映射也是字典（毕竟这是唯一内建的映射类型），也可以使用本章稍后讲到的字典方法 copy．</p>
+<h3 id="基本字典操作"><a href="#基本字典操作" class="headerlink" title="基本字典操作"></a>基本字典操作</h3><p>字典的基本行为在很多方面与序列类似：</p>
+<hr>
+
+<ul>
+<li>len(d) 返回 d 中项（键值对）的数量；</li>
+<li>d[k] 返回关联到键 k 上的值；</li>
+<li>d[k]=v 将值 v 关联到键 k 上；</li>
+<li>del d[k] 删除键为 k 的项；</li>
+<li>k in d 检查 d 中是否有含有键为 k 的项．<br>尽管字典和列表有很多特性相同，单也有下面一些重要的区别．</li>
+<li><strong>键类型：</strong>字典的键不一定为整型数据（但也可能是），也可能是其他不可变类型，比如浮点型（实型）、字符串或者元组．</li>
+<li><strong>自动添加：</strong>即使那个键起初在字典中并不存在，也可以为它分配一个值，这样字典就会建立新的项．而（在不使用 append 方法或者其他类似操作的情况下）不能将值关联到列表范围之外的索引上．</li>
+<li><strong>成员资格：</strong>表达式 k in d （d 为字典）查找的是键，而不是值．表达式 v in l （l 为列表）则用来查找值，</li>
+</ul>
+<hr>
+
+<p><strong>提示：</strong>在字典中检查的成员资格比在列表中检查值的成员资格更高效，数据结构的规模越大，两者的效率差距越明显．</p>
+<hr>
+
+<p>第一点——键可以为任何不可变类型——是字典最强大的地方．第二点也很重要：</p>
+<pre><code>&gt;&gt;&gt; x = []
+&gt;&gt;&gt; x[42] = &apos;Foobar&apos;
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+IndexError: list assignment index out of range
+&gt;&gt;&gt; x = {}
+&gt;&gt;&gt; x[42] = &apos;Foobar&apos;
+&gt;&gt;&gt; x
+{42: &apos;Foobar&apos;}
+</code></pre><h3 id="字典的格式化字符串"><a href="#字典的格式化字符串" class="headerlink" title="字典的格式化字符串"></a>字典的格式化字符串</h3><p>在每个转换说明符中的 % 字符后面，可以加上（用圆括号括起来的）键，后面再跟上其他说明元素．</p>
+<pre><code>&gt;&gt;&gt; phonebook = {&apos;Beth&apos;: &apos;9102&apos;, &apos;Alice&apos;: &apos;2341&apos;, &apos;Cecil&apos;: &apos;3258&apos;}
+&gt;&gt;&gt; &quot;Cecil&apos;s phone number is %(Cecil)s.&quot; % phonebook
+&quot;Cecil&apos;s phone number is 3258.&quot;
+
+&gt;&gt;&gt; &quot;Beth: %(Beth)s, Alice: %(Alice)s, Cecil: %(Cecil)s&quot; % phonebook
+&apos;Beth: 9102, Alice: 2341, Cecil: 3258&apos;
+</code></pre><p><strong>注意：</strong>string.Template类（第三章提到过）对于这类应用也是非常有用的．</p>
+<h3 id="字典方法"><a href="#字典方法" class="headerlink" title="字典方法"></a>字典方法</h3><p><font color="red"><strong>clear</strong></font> 方法清除字典中所有的项．这是个原地操作（类似于 list.sort），所以无返回值（或者说返回 None）．</p>
+<pre><code>&gt;&gt;&gt; d = {}
+&gt;&gt;&gt; d[&apos;name&apos;] = &apos;Gumby&apos;
+&gt;&gt;&gt; d[&apos;age&apos;] = 42
+&gt;&gt;&gt; d
+{&apos;age&apos;: 42, &apos;name&apos;: &apos;Gumby&apos;}
+&gt;&gt;&gt; return_value = d.clear()
+&gt;&gt;&gt; d    
+{}
+&gt;&gt;&gt; print return_value
+None
+</code></pre><p>这个方法的用处，第一种情况：</p>
+<pre><code>&gt;&gt;&gt; x = {}
+&gt;&gt;&gt; y = x
+&gt;&gt;&gt; x[&apos;key&apos;] = &apos;value&apos;
+&gt;&gt;&gt; y
+{&apos;key&apos;: &apos;value&apos;}
+&gt;&gt;&gt; x = {}
+&gt;&gt;&gt; y
+{&apos;key&apos;: &apos;value&apos;}
+</code></pre><p>第二种情况：</p>
+<pre><code>&gt;&gt;&gt; x = {}
+&gt;&gt;&gt; y = x
+&gt;&gt;&gt; x[&apos;key&apos;] = &apos;value&apos;
+&gt;&gt;&gt; y
+{&apos;key&apos;: &apos;value&apos;}
+&gt;&gt;&gt; x.clear()
+&gt;&gt;&gt; y
+{}
+&gt;&gt;&gt; x
+{}
+</code></pre><p>两种情况中，x 和 y 最初对应同一个字典．情况 1 中，通过将 x 关联到一个新的空字典来＂清空＂它，这对 y 一点影响也没有，它还关联到原先的字典．如果想清空原始字典中的所有的元素，必须使用 clear 方法．</p>
+<p><font color="red"><strong>copy</strong></font> 方法返回一个具有相同键－值对的新字典（这个方法实现的是<strong>浅复制</strong>），因为值本身就是相同的，而不是副本）．</p>
+<pre><code>&gt;&gt;&gt; x = {&apos;username&apos;: &apos;admin&apos;, &apos;machines&apos;: [&apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos;]}
+&gt;&gt;&gt; y = x.copy()
+&gt;&gt;&gt; y[&apos;username&apos;] = &apos;mlh&apos;
+&gt;&gt;&gt; y[&apos;machines&apos;].remove(&apos;bar&apos;)
+&gt;&gt;&gt; y
+{&apos;username&apos;: &apos;mlh&apos;, &apos;machines&apos;: [&apos;foo&apos;, &apos;baz&apos;]}
+&gt;&gt;&gt; x
+{&apos;username&apos;: &apos;admin&apos;, &apos;machines&apos;: [&apos;foo&apos;, &apos;baz&apos;]}
+</code></pre><p>可以看到，当在副本中替换值的时候，原始字典不受影响，但是，如果修改了某个值（原地修改，而不是替换），原始的字典也会改变，因为同样的值也存储在原字典中（就像上面例子中的 “machines” 列表一样）．</p>
+<p>避免这个问题的一种方法就是使用<strong>深复制</strong>，复制其包含所有的值．可以使用 copy 模块的 deepcopy 函数来完成操作：</p>
+<pre><code>&gt;&gt;&gt; from copy import deepcopy
+&gt;&gt;&gt; d = {}
+&gt;&gt;&gt; d[&apos;names&apos;] = [&apos;Alfred&apos;, &apos;Bertrand&apos;]
+&gt;&gt;&gt; c = d.copy()
+&gt;&gt;&gt; dc = deepcopy(d)
+&gt;&gt;&gt; d[&apos;names&apos;].append(&apos;Clive&apos;)
+&gt;&gt;&gt; c
+{&apos;names&apos;: [&apos;Alfred&apos;, &apos;Bertrand&apos;, &apos;Clive&apos;]}
+&gt;&gt;&gt; dc
+{&apos;names&apos;: [&apos;Alfred&apos;, &apos;Bertrand&apos;]}
+</code></pre><p><font color="red"><strong>fromkeys</strong></font> 方法使用给定的键建立新的字典，每个键默认对应的值为 None：</p>
+<pre><code>&gt;&gt;&gt; {}.fromkeys([&apos;name&apos;, &apos;age&apos;])
+{&apos;age&apos;: None, &apos;name&apos;: None}
+</code></pre><p>上例首先建立了一个空词典，然后建立另外一个新词典．也可以直接在所有字典的类型 dict 上面调用方法：</p>
+<pre><code>&gt;&gt;&gt; dict.fromkeys([&apos;name&apos;, &apos;age&apos;])
+{&apos;age&apos;: None, &apos;name&apos;: None}
+</code></pre><p>也可以自己提供默认值：</p>
+<pre><code>&gt;&gt;&gt; dict.fromkeys([&apos;name&apos;, &apos;age&apos;], &apos;unkown&apos;)
+{&apos;age&apos;: &apos;unkown&apos;, &apos;name&apos;: &apos;unkown&apos;}
+</code></pre><p><font color="red"><strong>get</strong></font> 方法是个更宽松的访问字典项的方法．</p>
+<pre><code>&gt;&gt;&gt; d = {}
+&gt;&gt;&gt; print d[&apos;name&apos;]
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+KeyError: &apos;name&apos;
+&gt;&gt;&gt; print d.get(&apos;name&apos;)
+None
+</code></pre><p>当 get 访问一个不存在的键时，没有任何异常，而得到了 None 值．还可以自定义＂默认＂值，替换 None：</p>
+<pre><code>&gt;&gt;&gt; print d.get(&apos;name&apos;, &apos;N/A&apos;)
+N/A
+&gt;&gt;&gt; d[&apos;name&apos;] = &apos;Eric&apos;
+&gt;&gt;&gt; d.get(&apos;name&apos;)
+&apos;Eric&apos;
+</code></pre><p><font color="red"><strong>has_key</strong></font> 方法可以检查字典中是否含有给出的键．表达式 d.has_key(k) 相当于表达式 k　in　d． Python 3.0 中不包括这个函数．</p>
+<pre><code>&gt;&gt;&gt; d = {}
+&gt;&gt;&gt; d.has_key(&apos;name&apos;)
+False
+&gt;&gt;&gt; d[&apos;name&apos;] = &apos;Eric&apos;
+&gt;&gt;&gt; d.has_key(&apos;name&apos;)
+True
+</code></pre><p><font color="red"><strong>items</strong></font> 方法将所有的字典项以列表方式返回，这些列表项中的每一项都来自于（键，值）．但是项在返回时并没有特殊的顺序．</p>
+<pre><code>&gt;&gt;&gt; d = {&apos;title&apos;: &apos;python web site&apos;, &apos;url&apos;: &apos;http://www.python.org&apos;, &apos;spam&apos;: 0}
+&gt;&gt;&gt; d.items()
+[(&apos;url&apos;, &apos;http://www.python.org&apos;), (&apos;spam&apos;, 0), (&apos;title&apos;, &apos;python web site&apos;)]
+</code></pre><p><font color="red"><strong>iteritems</strong></font> 方法的作用大致相同，但是会返回一个迭代器对象而不是列表：</p>
+<pre><code>&gt;&gt;&gt; it = d.iteritems()
+&gt;&gt;&gt; it
+&lt;dictionary-itemiterator object at 0x7ff9a4b703c0&gt;
+&gt;&gt;&gt; list(it)    # Convert the iterator to a list
+[(&apos;url&apos;, &apos;http://www.python.org&apos;), (&apos;spam&apos;, 0), (&apos;title&apos;, &apos;python web site&apos;)]
+</code></pre><p>在很多情况下使用 iteritems 更高效（尤其是想要迭代结果的情况下）．</p>
+<p><font color="red"><strong>keys</strong></font> 方法将字典中的键以列表形式返回：</p>
+<pre><code>&gt;&gt;&gt; d = {&apos;a&apos;: 1, &apos;b&apos;: 2}
+&gt;&gt;&gt; d
+{&apos;a&apos;: 1, &apos;b&apos;: 2}
+&gt;&gt;&gt; d.keys()
+[&apos;a&apos;, &apos;b&apos;]
+</code></pre><p><font color="red"><strong>iterkeys</strong></font> 返回针对键的迭代器：</p>
+<pre><code>&gt;&gt;&gt; it = d.iterkeys()
+&gt;&gt;&gt; it
+&lt;dictionary-keyiterator object at 0x7ff9a4b70418&gt;
+&gt;&gt;&gt; list(it)
+[&apos;a&apos;, &apos;b&apos;]
+</code></pre><p><font color="red"><strong>pop</strong></font> 方法用来获得对应于给定键的值，然后将这个键－值对从字典中移除：</p>
+<pre><code>&gt;&gt;&gt; list(it)
+[&apos;a&apos;, &apos;b&apos;]
+&gt;&gt;&gt; 
+&gt;&gt;&gt; d = {&apos;x&apos;: 1, &apos;y&apos;: 2}
+&gt;&gt;&gt; d.pop(&apos;x&apos;)
+1
+&gt;&gt;&gt; d
+{&apos;y&apos;: 2}
+</code></pre><p><font color="red"><strong>popitem</strong></font> 方法类似于 list.pop，后者会弹出列表的最后一个元素．但不同的是，popitem 弹出随机的项，因为字典并没有＂最后的元素＂或者其他有关顺序的概念．若想一个接一个地移除并处理项，这个方法就非常有效了（因为不用首先获取键的列表）．</p>
+<pre><code>&gt;&gt;&gt; d = {&apos;url&apos;: &apos;http://www.python.org&apos;, &apos;spam&apos;: 0, &apos;title&apos;: &apos;python web site&apos;}
+&gt;&gt;&gt; d
+{&apos;url&apos;: &apos;http://www.python.org&apos;, &apos;title&apos;: &apos;python web site&apos;, &apos;spam&apos;: 0}
+&gt;&gt;&gt; d.popitem()
+(&apos;url&apos;, &apos;http://www.python.org&apos;)
+&gt;&gt;&gt; d
+{&apos;title&apos;: &apos;python web site&apos;, &apos;spam&apos;: 0}
+</code></pre><p>因为字典是无序的，所以没有 append 方法．</p>
+<p><font color="red"><strong>setdefault</strong></font> 方法在某种程度上类似于 get 方法，就是能够活得与给定键相关联的值，除此之外，setdefault 还能在字典中不含有给定键的情况下设定相应的键值．</p>
+<pre><code>&gt;&gt;&gt; d = {}
+&gt;&gt;&gt; d.setdefault(&apos;name&apos;, &apos;N/A&apos;)
+&apos;N/A&apos;
+&gt;&gt;&gt; d
+{&apos;name&apos;: &apos;N/A&apos;}
+&gt;&gt;&gt; d[&apos;name&apos;] = &apos;Gumby&apos;
+&gt;&gt;&gt; d.setdefault(&apos;name&apos;, &apos;N/A&apos;)
+&apos;Gumby&apos;
+&gt;&gt;&gt; d
+{&apos;name&apos;: &apos;Gumby&apos;}
+</code></pre><p>可以看到，当键不存在的时候，setdefault 返回默认值并且相应地更新字典．如果键存在，那么就返回与其对应的值，但不改变字典．默认值是可选的，这点和 get 一样．如果不设定，会默认使用 None.</p>
+<pre><code>&gt;&gt;&gt; d = {}
+&gt;&gt;&gt; print d.setdefault(&apos;name&apos;)
+None
+&gt;&gt;&gt; d
+{&apos;name&apos;: None}
+</code></pre><p><font color="red"><strong>update</strong></font> 方法可以利用一个字典项更新另外一个字典：</p>
+<pre><code>&gt;&gt;&gt; d = {
+...     &apos;title&apos;: &apos;python web site&apos;,
+...     &apos;url&apos;: &apos;http://www.python.org&apos;,
+...     &apos;changed&apos;: &apos;Mar 14 22:09:15 MET 2008&apos;
+... }
+&gt;&gt;&gt; x = {&apos;title&apos;: &apos;Python Language Website&apos;}
+&gt;&gt;&gt; d.update(x)
+&gt;&gt;&gt; d
+{&apos;url&apos;: &apos;http://www.python.org&apos;, &apos;changed&apos;: &apos;Mar 14 22:09:15 MET 2008&apos;, &apos;title&apos;: &apos;Python Language Website&apos;}
+</code></pre><p>提供的字典中的项会被添加到旧的字典中，若有相同的键则会进行覆盖．</p>
+<p>update 方法可以使用与调用 dict 函数（或者类型构造函数）同样的方式进行调用．这就意味着 update 可以和映射、拥有（键，值）对的队列（或者其他可迭代的对象）以及关键字参数一起调用．</p>
+<p><font color="red"><strong>values</strong></font> 方法以列表的形式返回字典中的值（<font color="red"><strong>itervalues</strong></font> 返回值的迭代器）．与返回键的列表不同的是，返回值的列表中可以包含重复的元素：</p>
+<pre><code>&gt;&gt;&gt; d = {}
+&gt;&gt;&gt; d[1] = 1
+&gt;&gt;&gt; d[2] = 2
+&gt;&gt;&gt; d[3] = 3
+&gt;&gt;&gt; d[4] = 1
+&gt;&gt;&gt; d.values()
+[1, 2, 3, 1]
+&gt;&gt;&gt; 
+&gt;&gt;&gt; it = d.itervalues()
+&gt;&gt;&gt; it
+&lt;dictionary-valueiterator object at 0x7f0f7a7c9520&gt;
+&gt;&gt;&gt; list(it)
+[1, 2, 3, 1]
+</code></pre></span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/28/alu-15-t/" rel="prev">15 定理</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/26/python-3/" rel="next">Python Chapter 3 使用字符串</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/09/28/python-4/"
+                   data-title="Python Chapter 4 字典：当索引不好用时" data-url="http://sujerry.com/2015/09/28/python-4/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/tempo.jpg" alt="Jerry Wang" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Jerry Wang</p>
+        </div>
+
+        <p class="site-description motion-element" itemprop="description">Every single day without dancing is one day we betrayed of life.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">categories</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sujerry" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1955496293" target="_blank">Weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.kennethreitz.org/" target="_blank">kennethreitz</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cyberciti.biz/" target="_blank">nixCraft</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cnblogs.com/peida/" target="_blank">Peida</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/sunboy_2050" target="_blank">Sunboy</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://macshuo.com/" target="_blank">MacTalk</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://qianduanblog.com/" target="_blank">QDBlog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://heroicyang.com/" target="_blank">Hero</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.skymoon.biz/" target="_blank">Skymoon</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.kuangbin.net/" target="_blank">KuangBin</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/lttree" target="_blank">LTtree</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://yife.im/" target="_blank">FlyingBull</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字典的使用"><span class="nav-number">1.</span> <span class="nav-text">字典的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建和使用字典"><span class="nav-number">2.</span> <span class="nav-text">创建和使用字典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dict-函数"><span class="nav-number">2.1.</span> <span class="nav-text">dict 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本字典操作"><span class="nav-number">2.2.</span> <span class="nav-text">基本字典操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典的格式化字符串"><span class="nav-number">2.3.</span> <span class="nav-text">字典的格式化字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典方法"><span class="nav-number">2.4.</span> <span class="nav-text">字典方法</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" align="center">
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry Wang</span>
+</div>
+
+<!--jerrywang
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+-->
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sujerry"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
