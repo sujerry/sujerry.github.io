@@ -180,6 +180,103 @@
           
           
             
+              <a class="post-title-link" href="/2015/10/19/vim-commands-2/" itemprop="url">
+                VIM Commands 2
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-10-19T15:32:39+08:00" content="2015-10-19">
+            2015-10-19
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Vim/" itemprop="url" rel="index">
+                  <span itemprop="name">Vim</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/19/vim-commands-2/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/19/vim-commands-2/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            统计字符串出现次数:# 统计string的出现次数，string可以使用正则表达式
+
+:%s/string/&amp;/gn 回车
+
+:%s/\([01]\d\|2[01234]\)\d master\s-\s*\(\d*\s*)*connected\s*\d\+-\d\+/&amp;/gn
+
+            
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/19/vim-commands-2/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/10/14/python-6/" itemprop="url">
                 Python Chapter 6 抽象
               </a>
@@ -628,18 +725,9 @@ tail
           <span itemprop="articleBody">
             
             给定的两个数 a 和 b，在不使用第三个变量的情况下，交换 a 和 b 的值．
-第一种方法：
-x = x ^ y
-y = x ^ y
-x = x ^ y
-第二种方法：
-x = x + y
-y = x - y
-x = x - y
-第三种方法：
-x = x - y
-y = x + y
-x = y - x
+第一种方法：123x = x ^ yy = x ^ yx = x ^ y
+第二种方法：123x = x + yy = x - yx = x - y
+第三种方法：123x = x - yy = x + yx = y - x
             ...
           </span>
           <div class="post-more-link text-center">
@@ -1050,103 +1138,6 @@ X = a[n] * (n-1)! + a[n-1] * (n-2)! + ... + a[i] * (i-1)! + ... + a[1] * 0!
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/29/python-5/" itemprop="url">
-                Python Chapter 5 条件、循环和其他语句
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-09-29T08:02:43+08:00" content="2015-09-29">
-            2015-09-29
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Python/" itemprop="url" rel="index">
-                  <span itemprop="name">Python</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/09/29/python-5/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/29/python-5/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            print 和 import 的更多信息对于很多应用程序来说，使用 logging 模块日志比 print 语句更合适．
-使用逗号输出打印多个表达式时，使用逗号将他们隔开就好：
-&gt;&gt;&gt; print &apos;Age:&apos;, 32
-Age: 32
-
-注意： print 的参
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/29/python-5/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1186,14 +1177,14 @@ Age: 32
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>

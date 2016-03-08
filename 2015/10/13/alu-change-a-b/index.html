@@ -44,69 +44,30 @@
 
 
 <meta name="description" content="给定的两个数 a 和 b，在不使用第三个变量的情况下，交换 a 和 b 的值．
-第一种方法：
-x = x ^ y
-y = x ^ y
-x = x ^ y
-第二种方法：
-x = x + y
-y = x - y
-x = x - y
-第三种方法：
-x = x - y
-y = x + y
-x = y - x
-第四种方法：
-x = y - x
-y = y - x
-x = y + x
-第五种方法：
-x = x">
+第一种方法：123x = x ^ yy = x ^ yx = x ^ y
+第二种方法：123x = x + yy = x - yx = x - y
+第三种方法：123x = x - yy = x + yx = y - x
+第四种方法：123x = y - xy = y - xx = y + x
+第五种方法：123x =">
 <meta property="og:type" content="article">
 <meta property="og:title" content="不使用第三个变量，交换 a 和 b 中的值">
 <meta property="og:url" content="http://sujerry.com/2015/10/13/alu-change-a-b/index.html">
 <meta property="og:site_name" content="SuJerry's Blog">
 <meta property="og:description" content="给定的两个数 a 和 b，在不使用第三个变量的情况下，交换 a 和 b 的值．
-第一种方法：
-x = x ^ y
-y = x ^ y
-x = x ^ y
-第二种方法：
-x = x + y
-y = x - y
-x = x - y
-第三种方法：
-x = x - y
-y = x + y
-x = y - x
-第四种方法：
-x = y - x
-y = y - x
-x = y + x
-第五种方法：
-x = x">
-<meta property="og:updated_time" content="2015-10-13T06:14:03.117Z">
+第一种方法：123x = x ^ yy = x ^ yx = x ^ y
+第二种方法：123x = x + yy = x - yx = x - y
+第三种方法：123x = x - yy = x + yx = y - x
+第四种方法：123x = y - xy = y - xx = y + x
+第五种方法：123x =">
+<meta property="og:updated_time" content="2016-02-28T02:47:33.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="不使用第三个变量，交换 a 和 b 中的值">
 <meta name="twitter:description" content="给定的两个数 a 和 b，在不使用第三个变量的情况下，交换 a 和 b 的值．
-第一种方法：
-x = x ^ y
-y = x ^ y
-x = x ^ y
-第二种方法：
-x = x + y
-y = x - y
-x = x - y
-第三种方法：
-x = x - y
-y = x + y
-x = y - x
-第四种方法：
-x = y - x
-y = y - x
-x = y + x
-第五种方法：
-x = x">
+第一种方法：123x = x ^ yy = x ^ yx = x ^ y
+第二种方法：123x = x + yy = x - yx = x - y
+第三种方法：123x = x - yy = x + yx = y - x
+第四种方法：123x = y - xy = y - xx = y + x
+第五种方法：123x =">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -284,35 +245,14 @@ x = x">
 
       
         <span itemprop="articleBody"><p>给定的两个数 a 和 b，在不使用第三个变量的情况下，交换 a 和 b 的值．</p>
-<p>第一种方法：</p>
-<pre><code>x = x ^ y
-y = x ^ y
-x = x ^ y
-</code></pre><p>第二种方法：</p>
-<pre><code>x = x + y
-y = x - y
-x = x - y
-</code></pre><p>第三种方法：</p>
-<pre><code>x = x - y
-y = x + y
-x = y - x
-</code></pre><p>第四种方法：</p>
-<pre><code>x = y - x
-y = y - x
-x = y + x
-</code></pre><p>第五种方法：</p>
-<pre><code>x = x * y
-y = x / y
-x = x / y
-</code></pre><p>第六种方法：</p>
-<pre><code>x = y / x
-y = y / x
-x = y * x
-</code></pre><p>第七种方法：</p>
-<pre><code>x = x / y
-y = x * y
-x = y / x
-</code></pre><p>第一种方法，最安全不会出现溢出问题．</p>
+<p>第一种方法：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">x</span> = x<span class="regexp"> ^</span> y</span><br><span class="line">y = x<span class="regexp"> ^</span> y</span><br><span class="line">x = x<span class="regexp"> ^</span> y</span><br></pre></td></tr></table></figure></p>
+<p>第二种方法：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">x = <span class="value">x + y</span></span></span><br><span class="line"><span class="setting">y = <span class="value">x - y</span></span></span><br><span class="line"><span class="setting">x = <span class="value">x - y</span></span></span><br></pre></td></tr></table></figure></p>
+<p>第三种方法：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">x = <span class="value">x - y</span></span></span><br><span class="line"><span class="setting">y = <span class="value">x + y</span></span></span><br><span class="line"><span class="setting">x = <span class="value">y - x</span></span></span><br></pre></td></tr></table></figure></p>
+<p>第四种方法：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">x = <span class="value">y - x</span></span></span><br><span class="line"><span class="setting">y = <span class="value">y - x</span></span></span><br><span class="line"><span class="setting">x = <span class="value">y + x</span></span></span><br></pre></td></tr></table></figure></p>
+<p>第五种方法：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">x = <span class="value">x * y</span></span></span><br><span class="line"><span class="setting">y = <span class="value">x / y</span></span></span><br><span class="line"><span class="setting">x = <span class="value">x / y</span></span></span><br></pre></td></tr></table></figure></p>
+<p>第六种方法：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">x = <span class="value">y / x</span></span></span><br><span class="line"><span class="setting">y = <span class="value">y / x</span></span></span><br><span class="line"><span class="setting">x = <span class="value">y * x</span></span></span><br></pre></td></tr></table></figure></p>
+<p>第七种方法：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">x = <span class="value">x / y</span></span></span><br><span class="line"><span class="setting">y = <span class="value">x * y</span></span></span><br><span class="line"><span class="setting">x = <span class="value">y / x</span></span></span><br></pre></td></tr></table></figure></p>
+<p>第一种方法，最安全不会出现溢出问题．</p>
 <p>第二种到第五种方法，可能存在溢出问题（上溢或下溢）．</p>
 <p>第六种和第七种方法，只适用于浮点数．</p>
 </span>
@@ -405,14 +345,14 @@ x = y / x
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
