@@ -59,7 +59,7 @@ X = a[n] * (n-1)! + a[n-1] * (n-2)! + ... + a[i] * (i-1)! + ... + a[1] * 0!
 其中，a[i] 为整数，并且 0 &amp;lt;= a[i] &amp;lt; i (1 &amp;lt;= i &amp;lt;= n)
 适用领域范围：解决一些序列问题的算法．
 实例一{1,2,3,4,…,n} 表示 1,2,3,…">
-<meta property="og:updated_time" content="2015-09-29T09:05:24.576Z">
+<meta property="og:updated_time" content="2016-03-30T13:51:32.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="康托展开（Cantor expansion）">
 <meta name="twitter:description" content="算法描述把一个整数 X 展开成如下形式：
@@ -271,29 +271,8 @@ X = a[n] * (n-1)! + a[n-1] * (n-2)! + ... + a[i] * (i-1)! + ... + a[1] * 0!
 第三位是2，小于2的数是1，但1在第一位，所以有0个数，0*1! ，
 
 所以比1324小的排列有0*3!+1*2!+0*1!=2个，1324是第三个小数。
-</code></pre><p>C 语言代码实现：</p>
-<pre><code>//参数 int s[] 为待展开之数的各位数字，如需展开2134，则s[4] = {2,1,3,4}
-//参数 n 为待展开的数字个数，这里是4
-//阶乘表 long int fac[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880}
-
-long cantor(int s[], int n)
-{
-    long int i, j, temp, num;
-
-    num = 0;
-    for(i=0; i&lt;n; i++)
-    {
-        temp = 0;
-        for(int j=i+1; j&lt;n; j++)
-        {
-            if(s[j]&lt;s[i])
-                temp++;    //判断几个数小于它
-        }
-        num += fac[n-i-1] * temp;    //(或num = num + fac[n-i-1] * temp;)
-    }
-    return num+1;
-}
-</code></pre><h2 id="实例二"><a href="#实例二" class="headerlink" title="实例二"></a>实例二</h2><p>在魔方风靡全球之后不久，Rubik先生发明了它的简化版――魔板。魔板由 8 个同样大小的方块组成，每个方块颜色均不相同，可用数字 1-8 分别表示。任一时刻魔板的状态可用方块的颜色序列表示：从魔板的左上角开始，按顺时针方 向依次写下各方块的颜色代号，所得到的数字序列即可表示此时魔板的状态。</p>
+</code></pre><p>C 语言代码实现：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//参数 int s[] 为待展开之数的各位数字，如需展开2134，则s[4] = &#123;2,1,3,4&#125;</span></span><br><span class="line"><span class="comment">//参数 n 为待展开的数字个数，这里是4</span></span><br><span class="line"><span class="comment">//阶乘表 long int fac[] = &#123;1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">cantor</span><span class="params">(<span class="keyword">int</span> s[], <span class="keyword">int</span> n)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">int</span> i, j, temp, num;</span><br><span class="line"></span><br><span class="line">    num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        temp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[j]&lt;s[i])</span><br><span class="line">                temp++; <span class="comment">//判断几个数小于它</span></span><br><span class="line">        &#125;</span><br><span class="line">        num += fac[n-i-<span class="number">1</span>] * temp;   <span class="comment">//(或num = num + fac[n-i-1] * temp;)</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="实例二"><a href="#实例二" class="headerlink" title="实例二"></a>实例二</h2><p>在魔方风靡全球之后不久，Rubik先生发明了它的简化版――魔板。魔板由 8 个同样大小的方块组成，每个方块颜色均不相同，可用数字 1-8 分别表示。任一时刻魔板的状态可用方块的颜色序列表示：从魔板的左上角开始，按顺时针方 向依次写下各方块的颜色代号，所得到的数字序列即可表示此时魔板的状态。</p>
 <p>例如，序列(1,2,3,4,5,6,7,8)表示魔板状态为： </p>
 <pre><code>1 2 3 4 
 8 7 6 5 
@@ -321,128 +300,8 @@ C: 中间4个方块顺时针旋转一格，如上图可变换为17245368
 
    保证最后结果是我们需要的字典序最小的那种．
 </code></pre><p>代码：</p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;string&gt;
-#include &lt;algorithm&gt;
-#include &lt;queue&gt;
-
-using namespace std; 
-
-const int MAXN = 40321; //由于此题数字1~8，康托展开的所有情况为8!，共40320种 
-const int fac[8] = {1,1,2,6,24,120,720,5040}; //康托展开中用到的0~7的阶乘 
-string ans[MAXN]; //存储各状态的变化步骤，预处理完成 
-
-struct node
-{
-    int a[8];
-    int n;
-}u,v;
-
-void A(node &amp;t) //A操作 
-{
-    swap(t.a[0],t.a[7]); 
-    swap(t.a[1],t.a[6]); 
-    swap(t.a[2],t.a[5]); 
-    swap(t.a[3],t.a[4]);
-}
-
-void B(node &amp;t) //B操作 
-{
-    swap(t.a[3],t.a[2]); 
-    swap(t.a[2],t.a[1]); 
-    swap(t.a[1],t.a[0]); 
-    swap(t.a[4],t.a[5]); 
-    swap(t.a[5],t.a[6]); 
-    swap(t.a[6],t.a[7]);
-}
-
-void C(node &amp;t) //C操作 
-{
-    swap(t.a[1],t.a[6]); 
-    swap(t.a[6],t.a[5]); 
-    swap(t.a[5],t.a[2]);
-}
-
-int contor(node &amp;t) //康托展开
-{
-    int tmp, num = 0;
-    for(int i=0; i&lt;8; i++)
-    {
-        tmp = 0;
-        for(int j=i+1; j&lt;8; j++)
-        {
-            if(t.a[j] &lt; t.a[i])
-                tmp++;
-        }
-        num += tmp*fac[7-i];
-    }
-    return num;
-} 
-
-void Init(void)
-{
-    void (*ptr[3])(node&amp;); //定义函数指针 
-    ptr[0] = A; ptr[1] = B; ptr[2] = C; //指向对应函数方便处理 
-
-    int mark[MAXN] = {0}; //设置标记 
-
-    mark[0] = 1;
-
-    for(int i=0; i&lt;8; i++) //由初始状态12345678开始 
-        u.a[i] = i+1;
-
-    u.n = contor(u);
-
-    queue&lt;node&gt;que;
-    que.push(u);
-    while(!que.empty())
-    {
-        u = que.front();
-        que.pop(); 
-        for(int i=0; i&lt;3; i++) //三种变换 
-        {
-            v = u;
-            (*ptr[i])(v);
-            v.n = contor(v); //对副本执行操作并康托展开 
-            if(mark[v.n] == 0) //重复 
-            {
-                char ch = &apos;A&apos; + i;
-                ans[v.n] = ans[u.n] + ch; //记录步骤 
-
-                mark[v.n] = 1; //标记 
-                que.push(v);
-            } 
-        }
-    }
-}
-
-int main()
-{
-    Init();
-    string str1, str2;
-    char a[10] = {0}, b[10] = {0};
-
-    while(cin &gt;&gt; str1 &gt;&gt; str2)
-    {
-        int n[10];
-
-        for(int i=0; i&lt;8; ++i)
-        {
-            a[i] = str1[i] - &apos;0&apos;;
-            b[i] = str2[i] - &apos;0&apos;;
-        }
-
-        for(int i=0; i&lt;8; i++) //把初态置换成12345678 
-            n[a[i]-&apos;0&apos;] = i+1;
-
-        for(int i=0; i&lt;8; i++) //把目标状态相对于初态置换 
-            u.a[i] = n[b[i]-&apos;0&apos;];
-
-        cout &lt;&lt; ans[contor(u)] &lt;&lt; endl; //输出由12345678到目标态的步骤 
-    }
-    return 0;
-}
-</code></pre></span>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">40321</span>; <span class="comment">//由于此题数字1~8，康托展开的所有情况为8!，共40320种 </span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> fac[<span class="number">8</span>] = &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">24</span>,<span class="number">120</span>,<span class="number">720</span>,<span class="number">5040</span>&#125;; <span class="comment">//康托展开中用到的0~7的阶乘 </span></span><br><span class="line"><span class="built_in">string</span> ans[MAXN]; <span class="comment">//存储各状态的变化步骤，预处理完成 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> node</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">8</span>];</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">&#125;u,v;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">A</span><span class="params">(node &amp;t)</span> <span class="comment">//A操作 </span></span><br><span class="line"></span>&#123;</span><br><span class="line">    swap(t.a[<span class="number">0</span>],t.a[<span class="number">7</span>]); </span><br><span class="line">    swap(t.a[<span class="number">1</span>],t.a[<span class="number">6</span>]); </span><br><span class="line">    swap(t.a[<span class="number">2</span>],t.a[<span class="number">5</span>]); </span><br><span class="line">    swap(t.a[<span class="number">3</span>],t.a[<span class="number">4</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">B</span><span class="params">(node &amp;t)</span> <span class="comment">//B操作 </span></span><br><span class="line"></span>&#123;</span><br><span class="line">    swap(t.a[<span class="number">3</span>],t.a[<span class="number">2</span>]); </span><br><span class="line">    swap(t.a[<span class="number">2</span>],t.a[<span class="number">1</span>]); </span><br><span class="line">    swap(t.a[<span class="number">1</span>],t.a[<span class="number">0</span>]); </span><br><span class="line">    swap(t.a[<span class="number">4</span>],t.a[<span class="number">5</span>]); </span><br><span class="line">    swap(t.a[<span class="number">5</span>],t.a[<span class="number">6</span>]); </span><br><span class="line">    swap(t.a[<span class="number">6</span>],t.a[<span class="number">7</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">C</span><span class="params">(node &amp;t)</span> <span class="comment">//C操作 </span></span><br><span class="line"></span>&#123;</span><br><span class="line">    swap(t.a[<span class="number">1</span>],t.a[<span class="number">6</span>]); </span><br><span class="line">    swap(t.a[<span class="number">6</span>],t.a[<span class="number">5</span>]); </span><br><span class="line">    swap(t.a[<span class="number">5</span>],t.a[<span class="number">2</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">contor</span><span class="params">(node &amp;t)</span> <span class="comment">//康托展开</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp, num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">8</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;<span class="number">8</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(t.a[j] &lt; t.a[i])</span><br><span class="line">                tmp++;</span><br><span class="line">        &#125;</span><br><span class="line">        num += tmp*fac[<span class="number">7</span>-i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">void</span> (*ptr[<span class="number">3</span>])(node&amp;); <span class="comment">//定义函数指针 </span></span><br><span class="line">    ptr[<span class="number">0</span>] = A; ptr[<span class="number">1</span>] = B; ptr[<span class="number">2</span>] = C; <span class="comment">//指向对应函数方便处理 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> mark[MAXN] = &#123;<span class="number">0</span>&#125;; <span class="comment">//设置标记 </span></span><br><span class="line"></span><br><span class="line">    mark[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">8</span>; i++) <span class="comment">//由初始状态12345678开始 </span></span><br><span class="line">        u.a[i] = i+<span class="number">1</span>;</span><br><span class="line">      </span><br><span class="line">    u.n = contor(u);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">queue</span>&lt;node&gt;que;</span><br><span class="line">    que.push(u);</span><br><span class="line">    <span class="keyword">while</span>(!que.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        u = que.front();</span><br><span class="line">        que.pop(); </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">3</span>; i++) <span class="comment">//三种变换 </span></span><br><span class="line">        &#123;</span><br><span class="line">            v = u;</span><br><span class="line">            (*ptr[i])(v);</span><br><span class="line">            v.n = contor(v); <span class="comment">//对副本执行操作并康托展开 </span></span><br><span class="line">            <span class="keyword">if</span>(mark[v.n] == <span class="number">0</span>) <span class="comment">//重复 </span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">char</span> ch = <span class="string">'A'</span> + i;</span><br><span class="line">                ans[v.n] = ans[u.n] + ch; <span class="comment">//记录步骤 </span></span><br><span class="line"></span><br><span class="line">                mark[v.n] = <span class="number">1</span>; <span class="comment">//标记 </span></span><br><span class="line">                que.push(v);</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    Init();</span><br><span class="line">    <span class="built_in">string</span> str1, str2;</span><br><span class="line">    <span class="keyword">char</span> a[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;, b[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; str1 &gt;&gt; str2)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n[<span class="number">10</span>];</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">8</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            a[i] = str1[i] - <span class="string">'0'</span>;</span><br><span class="line">            b[i] = str2[i] - <span class="string">'0'</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">8</span>; i++) <span class="comment">//把初态置换成12345678 </span></span><br><span class="line">            n[a[i]-<span class="string">'0'</span>] = i+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">8</span>; i++) <span class="comment">//把目标状态相对于初态置换 </span></span><br><span class="line">            u.a[i] = n[b[i]-<span class="string">'0'</span>];</span><br><span class="line">              </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans[contor(u)] &lt;&lt; endl; <span class="comment">//输出由12345678到目标态的步骤 </span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</span>
       
     </div>
 
@@ -532,7 +391,7 @@ int main()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
