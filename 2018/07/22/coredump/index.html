@@ -34,7 +34,7 @@
 
 
 
-  <meta name="keywords" content="alu," />
+  <meta name="keywords" content="Hexo,next" />
 
 
 
@@ -43,46 +43,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/bitbug_favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="算法描述已知 {1, 2, 3, 4, 5} 的全排列，并且已经从小到大排序完毕．
-实例一(1) 找出第96个数
-第一步，用96-1得到95
-
-第二步，用95去除4!，得到3余23，有3个数比它小的数是4，所以第一位是4
-
-第三步，用23去除3!，得到3余5，有3个数比它小的数是4，但4已经在之前出现过了，
-
-        所以第二位是5（4在之前出现过，所以实际比5小的数是3个）
-
-第四步，用">
+<meta name="description" content="Every single day without dancing is one day we betrayed of life.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="康托逆展开（Cantor inverse expansion）">
-<meta property="og:url" content="http://sujerry.com/2015/09/30/alu-cantor-r-unfold/index.html">
+<meta property="og:title" content="coredump">
+<meta property="og:url" content="http://sujerry.com/2018/07/22/coredump/index.html">
 <meta property="og:site_name" content="SuJerry's Blog">
-<meta property="og:description" content="算法描述已知 {1, 2, 3, 4, 5} 的全排列，并且已经从小到大排序完毕．
-实例一(1) 找出第96个数
-第一步，用96-1得到95
-
-第二步，用95去除4!，得到3余23，有3个数比它小的数是4，所以第一位是4
-
-第三步，用23去除3!，得到3余5，有3个数比它小的数是4，但4已经在之前出现过了，
-
-        所以第二位是5（4在之前出现过，所以实际比5小的数是3个）
-
-第四步，用">
-<meta property="og:updated_time" content="2016-03-30T13:49:40.906Z">
+<meta property="og:description" content="Every single day without dancing is one day we betrayed of life.">
+<meta property="og:updated_time" content="2018-07-22T13:00:33.133Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="康托逆展开（Cantor inverse expansion）">
-<meta name="twitter:description" content="算法描述已知 {1, 2, 3, 4, 5} 的全排列，并且已经从小到大排序完毕．
-实例一(1) 找出第96个数
-第一步，用96-1得到95
-
-第二步，用95去除4!，得到3余23，有3个数比它小的数是4，所以第一位是4
-
-第三步，用23去除3!，得到3余5，有3个数比它小的数是4，但4已经在之前出现过了，
-
-        所以第二位是5（4在之前出现过，所以实际比5小的数是3个）
-
-第四步，用">
+<meta name="twitter:title" content="coredump">
+<meta name="twitter:description" content="Every single day without dancing is one day we betrayed of life.">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -92,7 +62,7 @@
   };
 </script>
 
-  <title> 康托逆展开（Cantor inverse expansion） | SuJerry's Blog </title>
+  <title> coredump | SuJerry's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -209,7 +179,7 @@
           
           
             
-              康托逆展开（Cantor inverse expansion）
+              coredump
             
           
         </h1>
@@ -218,34 +188,19 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2015-09-30T08:13:34+08:00" content="2015-09-30">
-            2015-09-30
+          <time itemprop="dateCreated" datetime="2018-07-22T21:00:33+08:00" content="2018-07-22">
+            2018-07-22
           </time>
         </span>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/ALU/" itemprop="url" rel="index">
-                  <span itemprop="name">ALU</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
         
 
         
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/30/alu-cantor-r-unfold/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/30/alu-cantor-r-unfold/" itemprop="commentsCount"></span>
+              <a href="/2018/07/22/coredump/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/22/coredump/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -259,66 +214,22 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h2><p>已知 {1, 2, 3, 4, 5} 的全排列，并且已经从小到大排序完毕．</p>
-<h2 id="实例一"><a href="#实例一" class="headerlink" title="实例一"></a>实例一</h2><p>(1) 找出第96个数</p>
-<pre><code>第一步，用96-1得到95
-
-第二步，用95去除4!，得到3余23，有3个数比它小的数是4，所以第一位是4
-
-第三步，用23去除3!，得到3余5，有3个数比它小的数是4，但4已经在之前出现过了，
-
-        所以第二位是5（4在之前出现过，所以实际比5小的数是3个）
-
-第四步，用5去除2!得到2余1，有2个数比它小的数是3，第三位是3
-
-第五步，用1去除1!得到1余0，有1个数比它小的数是2，第二位是2，最后一个数只能是1
-
-所以，这个数是45321
-</code></pre><h2 id="实例二"><a href="#实例二" class="headerlink" title="实例二"></a>实例二</h2><p>(2) 找出第16个数</p>
-<pre><code>第一步，用16-1得到15
-
-第二步，用15去除4!得到0余15，有0个数比它小的数是1
-
-第三步，用15去除3!得到2余3，有2个数比它小的数是3，但由于1已经在前面出现过了，
-
-        所以这里应该是4（因为1在之前出现过了所以实际比4小的数是2, 3这两个）
-
-第四步，用3去除2!得到1余1，有1个数比它小的数是2，但由于1已经在前面出现过了，
-
-        所以这里应该是3（因为1在之前出现过了所以实际比3小的数是2）
-
-第五步，用1去除1!得到1余0，有1个数比它小得数是2，但由于1，3，4已经在前面出现过了，
-
-        所以这里应该是5（因为1，3，4在之前出现过了所以实际比5小的数是2）
-
-最后，只剩下2了，所以最后一个数只能是2
-
-所以这个数是14352
-</code></pre><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> fac[]=&#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">24</span>, <span class="number">120</span>, <span class="number">720</span>, <span class="number">5040</span>, <span class="number">40320</span>, <span class="number">362880</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>* uncantor(<span class="keyword">int</span> x, <span class="keyword">int</span> k)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> *res, *h;</span><br><span class="line">    <span class="keyword">int</span> i, j, l, t;</span><br><span class="line"></span><br><span class="line">    res = (<span class="keyword">int</span> *)malloc(k*<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    h = (<span class="keyword">int</span> *)malloc((k+<span class="number">1</span>)*<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    memset(res, <span class="number">0</span>, k*<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    memset(h, <span class="number">0</span>, (k+<span class="number">1</span>)*<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line"></span><br><span class="line">    --x;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=k; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        t = x / fac[k-i];</span><br><span class="line">        x -= t * fac[k-i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>, l=<span class="number">0</span>; l&lt;=t; j++)</span><br><span class="line">            <span class="keyword">if</span>(!h[j])l++;</span><br><span class="line">        j--;</span><br><span class="line">        h[j] = <span class="number">1</span>;</span><br><span class="line">        res[i-<span class="number">1</span>] = j;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</span>
+        <span itemprop="articleBody"></span>
       
     </div>
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/alu/" rel="tag">#alu</a>
-          
-        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/09/gem-p-1/" rel="prev">gem install redis error</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/29/alu-cantor-unfold/" rel="next">康托展开（Cantor expansion）</a>
+              <a href="/2016/02/28/vim-commands/" rel="next">VIM Commands</a>
             
           </div>
         </div>
@@ -343,8 +254,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/09/30/alu-cantor-r-unfold/"
-                   data-title="康托逆展开（Cantor inverse expansion）" data-url="http://sujerry.com/2015/09/30/alu-cantor-r-unfold/">
+              <div class="ds-thread" data-thread-key="2018/07/22/coredump/"
+                   data-title="coredump" data-url="http://sujerry.com/2018/07/22/coredump/">
               </div>
             
           </div>
@@ -490,7 +401,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法描述"><span class="nav-number">1.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例一"><span class="nav-number">2.</span> <span class="nav-text">实例一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例二"><span class="nav-number">3.</span> <span class="nav-text">实例二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <p class="post-toc-empty">This post does not have a Table Of Contents</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
