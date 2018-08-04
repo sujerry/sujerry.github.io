@@ -180,8 +180,8 @@
           
           
             
-              <a class="post-title-link" href="/2018/07/22/test/" itemprop="url">
-                test
+              <a class="post-title-link" href="/2018/08/04/c-array-init/" itemprop="url">
+                C 数组初始化
               </a>
             
           
@@ -191,19 +191,34 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-07-22T21:34:43+08:00" content="2018-07-22">
-            2018-07-22
+          <time itemprop="dateCreated" datetime="2018-08-04T14:39:11+08:00" content="2018-08-04">
+            2018-08-04
           </time>
         </span>
 
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/c-c/" itemprop="url" rel="index">
+                  <span itemprop="name">c/c++</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
         
 
         
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2018/07/22/test/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/22/test/" itemprop="commentsCount"></span>
+              <a href="/2018/08/04/c-array-init/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/04/c-array-init/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -220,11 +235,13 @@
         
           <span itemprop="articleBody">
             
-            
-            
+            Linux内核代码中使用的一种初始化数组的方法头文件中定义数组中的内容，如果__AR未定义，则将其定义为空
+12345678/* 头文件 array.h */#ifndef __AR#define __AR(x, y)#endif__AR(1, -1)__AR(2, -2)__AR(3, -3)
+初
+            ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2018/07/22/test/#more" rel="contents">
+            <a class="btn" href="/2018/08/04/c-array-init/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -258,7 +275,7 @@
           
             
               <a class="post-title-link" href="/2018/07/22/coredump/" itemprop="url">
-                coredump
+                Linux coredump
               </a>
             
           
@@ -273,6 +290,21 @@
           </time>
         </span>
 
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Linux/" itemprop="url" rel="index">
+                  <span itemprop="name">Linux</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
         
 
         
@@ -297,8 +329,12 @@
         
           <span itemprop="articleBody">
             
-            
-            
+            什么是Coredump当程序运行的过程中异常终止或崩溃，操作系统会将程序当时的内存状态记录下来，保存在一个文件中，这种行为就叫做Core Dump（中文有的翻译成“核心转储）。
+Coredump产生原因1. 内存访问越界
+2. 多线程程序使用了线程不安全的函数
+3. 多线程读写的数据未加锁保护
+4.
+            ...
           </span>
           <div class="post-more-link text-center">
             <a class="btn" href="/2018/07/22/coredump/#more" rel="contents">
@@ -1122,7 +1158,7 @@ Bash (Bourne-Again SHell) is a Linux and Unix-like system shell or command langu
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>

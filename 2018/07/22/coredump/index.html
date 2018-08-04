@@ -34,7 +34,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -43,16 +43,40 @@
   <link rel="shorticon icon" type="image/x-icon" href="/bitbug_favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Every single day without dancing is one day we betrayed of life.">
+<meta name="description" content="什么是Coredump当程序运行的过程中异常终止或崩溃，操作系统会将程序当时的内存状态记录下来，保存在一个文件中，这种行为就叫做Core Dump（中文有的翻译成“核心转储）。
+Coredump产生原因1. 内存访问越界
+2. 多线程程序使用了线程不安全的函数
+3. 多线程读写的数据未加锁保护
+4. 非法指针
+    - 使用空指针
+    - 滥用指针转换
+5. 堆栈溢出
+如何打开Coredum">
 <meta property="og:type" content="article">
-<meta property="og:title" content="coredump">
+<meta property="og:title" content="Linux coredump">
 <meta property="og:url" content="http://sujerry.com/2018/07/22/coredump/index.html">
 <meta property="og:site_name" content="SuJerry's Blog">
-<meta property="og:description" content="Every single day without dancing is one day we betrayed of life.">
-<meta property="og:updated_time" content="2018-07-22T13:00:33.133Z">
+<meta property="og:description" content="什么是Coredump当程序运行的过程中异常终止或崩溃，操作系统会将程序当时的内存状态记录下来，保存在一个文件中，这种行为就叫做Core Dump（中文有的翻译成“核心转储）。
+Coredump产生原因1. 内存访问越界
+2. 多线程程序使用了线程不安全的函数
+3. 多线程读写的数据未加锁保护
+4. 非法指针
+    - 使用空指针
+    - 滥用指针转换
+5. 堆栈溢出
+如何打开Coredum">
+<meta property="og:updated_time" content="2018-07-22T14:00:58.345Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="coredump">
-<meta name="twitter:description" content="Every single day without dancing is one day we betrayed of life.">
+<meta name="twitter:title" content="Linux coredump">
+<meta name="twitter:description" content="什么是Coredump当程序运行的过程中异常终止或崩溃，操作系统会将程序当时的内存状态记录下来，保存在一个文件中，这种行为就叫做Core Dump（中文有的翻译成“核心转储）。
+Coredump产生原因1. 内存访问越界
+2. 多线程程序使用了线程不安全的函数
+3. 多线程读写的数据未加锁保护
+4. 非法指针
+    - 使用空指针
+    - 滥用指针转换
+5. 堆栈溢出
+如何打开Coredum">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -62,7 +86,7 @@
   };
 </script>
 
-  <title> coredump | SuJerry's Blog </title>
+  <title> Linux coredump | SuJerry's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -179,7 +203,7 @@
           
           
             
-              coredump
+              Linux coredump
             
           
         </h1>
@@ -193,6 +217,21 @@
           </time>
         </span>
 
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Linux/" itemprop="url" rel="index">
+                  <span itemprop="name">Linux</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
         
 
         
@@ -214,18 +253,33 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><h2 id="什么是Coredump"><a href="#什么是Coredump" class="headerlink" title="什么是Coredump"></a>什么是Coredump</h2><p>当程序运行的过程中异常终止或崩溃，操作系统会将程序当时的内存状态记录下来，保存在一个文件中，这种行为就叫做Core Dump（中文有的翻译成“核心转储）。</p>
+<h2 id="Coredump产生原因"><a href="#Coredump产生原因" class="headerlink" title="Coredump产生原因"></a>Coredump产生原因</h2><pre><code>1. 内存访问越界
+2. 多线程程序使用了线程不安全的函数
+3. 多线程读写的数据未加锁保护
+4. 非法指针
+    - 使用空指针
+    - 滥用指针转换
+5. 堆栈溢出
+</code></pre><h2 id="如何打开Coredump"><a href="#如何打开Coredump" class="headerlink" title="如何打开Coredump"></a>如何打开Coredump</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 该命令输出0则说明没有打开core dump</span></span><br><span class="line"><span class="built_in">ulimit</span> -c</span><br></pre></td></tr></table></figure>
+</span>
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag">#linux</a>
+          
+        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/22/test/" rel="prev">test</a>
+              <a href="/2018/08/04/c-array-init/" rel="prev">C 数组初始化</a>
             
           </div>
 
@@ -257,7 +311,7 @@
           <div class="comments" id="comments">
             
               <div class="ds-thread" data-thread-key="2018/07/22/coredump/"
-                   data-title="coredump" data-url="http://sujerry.com/2018/07/22/coredump/">
+                   data-title="Linux coredump" data-url="http://sujerry.com/2018/07/22/coredump/">
               </div>
             
           </div>
@@ -305,7 +359,7 @@
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
@@ -403,7 +457,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Coredump"><span class="nav-number">1.</span> <span class="nav-text">什么是Coredump</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coredump产生原因"><span class="nav-number">2.</span> <span class="nav-text">Coredump产生原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何打开Coredump"><span class="nav-number">3.</span> <span class="nav-text">如何打开Coredump</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
